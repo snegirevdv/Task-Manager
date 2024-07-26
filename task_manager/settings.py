@@ -31,7 +31,7 @@ if os.getenv('LOCAL', False):
     }
 
 else:
-    ALLOWED_HOSTS = ["webserver"]
+    ALLOWED_HOSTS = ["webserver", "task-manager-09zt.onrender.com"]
     DEBUG = False
     DATABASES = {
         'default': dj_database_url.config(
