@@ -18,15 +18,27 @@ from pathlib import Path
 
 dotenv.load_dotenv()
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 if os.getenv('LOCAL', False):
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
     DEBUG = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 else:
     ALLOWED_HOSTS = ["webserver"]
     DEBUG = False
-
-BASE_DIR = Path(__file__).resolve().parent.parent
+    DATABASES = {
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            conn_health_checks=True
+        )
+    }
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
@@ -68,13 +80,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "task_manager.wsgi.application"
-
-DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        conn_health_checks=True
-    )
-}
 
 
 AUTH_PASSWORD_VALIDATORS = [
