@@ -124,3 +124,5 @@ MESSAGE_TAGS = {
     messages.SUCCESS: "alert-success",
     messages.ERROR: "alert-danger",
 }
+
+AUTH_USER_MODEL = "users.User"
