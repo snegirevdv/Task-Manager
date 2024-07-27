@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -11,32 +12,31 @@ class UserListView(generic.ListView):
     template_name = "users/list.html"
 
 
-class UserCreateView(mixins.FormMessagesMixin, generic.CreateView):
+class UserCreateView(SuccessMessageMixin, generic.CreateView):
     template_name = "users/detail.html"
-    form_class = forms.UserCreateForm
+    form_class = forms.UserForm
     success_url = reverse_lazy("login")
-
-    form_success_message = "Пользователь успешно зарегистрирован"
+    success_message = "Пользователь успешно зарегистрирован"
 
 
 class UserUpdateView(
-    mixins.FormMessagesMixin,
+    SuccessMessageMixin,
     mixins.LoginRequiredMixin,
     mixins.OnlyAuthorMixin,
     generic.UpdateView,
 ):
     model = get_user_model()
     template_name = "users/detail.html"
-    form_class = forms.UserUpdateForm
+    form_class = forms.UserForm
     success_url = reverse_lazy("users:list")
 
     author_error_message = "У вас нет прав для изменения другого пользователя."
-    form_success_message = "Пользователь успешно изменен."
     redirect = "users:list"
+    success_message = "Пользователь успешно изменен."
 
 
 class UserDeleteView(
-    mixins.FormMessagesMixin,
+    SuccessMessageMixin,
     mixins.LoginRequiredMixin,
     mixins.OnlyAuthorMixin,
     generic.DeleteView,
@@ -46,5 +46,5 @@ class UserDeleteView(
     success_url = reverse_lazy("users:list")
 
     author_error_message = "У вас нет прав для изменения другого пользователя."
-    form_success_message = "Пользователь успешно изменен."
     redirect = "users:list"
+    success_message = "Пользователь успешно изменен."

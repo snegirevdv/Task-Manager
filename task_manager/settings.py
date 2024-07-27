@@ -120,7 +120,7 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MESSAGE_TAGS = {
-    messages.INFO: 'alert-info',
-    messages.SUCCESS: 'alert-success',
-    messages.ERROR: 'alert-danger',
+    messages.INFO: "alert-info",
+    messages.SUCCESS: "alert-success",
+    messages.ERROR: "alert-danger",
 }
