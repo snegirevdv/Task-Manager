@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+
+from django.contrib import messages
 import dj_database_url
 import dotenv
 
@@ -49,11 +51,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_bootstrap5",
-    "core",
     "labels",
     "statuses",
     "tasks",
     "users",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -116,3 +118,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MESSAGE_TAGS = {
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.ERROR: 'alert-danger',
+}
