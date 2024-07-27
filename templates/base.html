@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    {% include 'includes/header.html' %}
+    {% block content %}
+
+    {% endblock %}
+    {% include 'includes/footer.html' %}
+  </body>
+</html>
