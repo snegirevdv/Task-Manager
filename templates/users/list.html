@@ -23,9 +23,11 @@
             <td>{{ user.first_name }} {{ user.last_name }}</td>
             <td>{{ user.date_joined }}</td>
             <td>
-              <a href="{% url 'users:update' user.id %}">Изменить</a>
-              <br />
-              <a href="{% url 'users:delete' user.id %}">Удалить</a>
+              {% if user == request.user %}
+                <a href="{% url 'users:update' user.id %}">Изменить</a>
+                <br />
+                <a href="{% url 'users:delete' user.id %}">Удалить</a>
+              {% endif %}
             </td>
           </tr>
         {% endfor %}
