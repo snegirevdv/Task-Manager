@@ -20,13 +20,13 @@ dotenv.load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if os.getenv('LOCAL', False):
+if os.getenv("LOCAL", False):
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
     DEBUG = True
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 
@@ -34,9 +34,8 @@ else:
     ALLOWED_HOSTS = ["webserver", "task-manager-09zt.onrender.com"]
     DEBUG = False
     DATABASES = {
-        'default': dj_database_url.config(
-            conn_max_age=600,
-            conn_health_checks=True
+        "default": dj_database_url.config(
+            conn_max_age=600, conn_health_checks=True
         )
     }
 
@@ -65,7 +64,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'django.middleware.locale.LocaleMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "task_manager.urls"
@@ -91,38 +90,29 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": ("django.contrib.auth.password_validation."
-                 "UserAttributeSimilarityValidator"),
-    },
-    {
-        "NAME": ("django.contrib.auth.password_validation."
-                 "MinimumLengthValidator"),
-    },
-    {
-        "NAME": ("django.contrib.auth.password_validation."
-                 "CommonPasswordValidator"),
-    },
-    {
-        "NAME": ("django.contrib.auth.password_validation."
-                 "NumericPasswordValidator"),
+        "NAME": (
+            "django.contrib.auth.password_validation.MinimumLengthValidator"
+        ),
+        "OPTIONS": {
+            "min_length": 3,
+        },
     },
 ]
 
-LANGUAGE_CODE = "ru-ru"
+LANGUAGE_CODE = "ru"
 
 LANGUAGES = [
-    ('ru', 'Русский'),
-    ('en', 'English')
+    ("ru", "Русский"),
 ]
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, "locale"),
 ]
 
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -2,6 +2,4 @@
 
 app_name = "labels"
 
-urlpatterns = [
-
-]
+urlpatterns = []

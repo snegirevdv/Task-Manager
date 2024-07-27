@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load django_bootstrap5 %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
   <a class="navbar-brand" href="/">{% trans 'Менеджер задач' %}</a>
@@ -6,14 +7,23 @@
   <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/users/">{% trans 'Пользователи' %}</a>
+        <a class="nav-link" href="{% url 'users:list' %}">{% trans 'Пользователи' %}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login/">{% trans 'Вход' %}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/create/">{% trans 'Регистрация' %}</a>
-      </li>
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input class="btn nav-link" type="submit" value="Выход" />
+          </form>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">{% trans 'Вход' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'users:create' %}">{% trans 'Регистрация' %}</a>
+        </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

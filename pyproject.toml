@@ -15,7 +15,11 @@ dj-database-url = "^2.2.0"
 psycopg2-binary = "^2.9.9"
 gunicorn = "^22.0.0"
 django-bootstrap5 = "^24.2"
+black = "^24.4.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79

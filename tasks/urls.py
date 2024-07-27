@@ -2,6 +2,4 @@
 
 app_name = "tasks"
 
-urlpatterns = [
-
-]
+urlpatterns = []
