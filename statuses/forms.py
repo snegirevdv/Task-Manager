@@ -6,4 +6,4 @@ from statuses import models
 class StatusForm(forms.ModelForm):
     class Meta:
         model = models.Status
-        fields = ('name', )
+        fields = ("name",)

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="container wrapper flex-grow-1">
+    <h1 class="my-4">Удаление задачи</h1>
+
+    <p>Вы уверены, что хотите удалить {{ task.name }}?</p>
+    <form method="post">
+      {% csrf_token %}
+      {% bootstrap_button button_type='submit' button_class='btn-danger' content='Да, удалить' %}
+    </form>
+  </div>
+{% endblock %}
