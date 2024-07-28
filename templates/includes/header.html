@@ -11,6 +11,9 @@
       </li>
       {% if request.user.is_authenticated %}
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'statuses:list' %}">{% trans 'Статусы' %}</a>
+        </li>
+        <li class="nav-item">
           <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <input class="btn nav-link" type="submit" value="Выход" />
