@@ -1,4 +1,3 @@
-from django.contrib.auth import get_user_model
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
@@ -47,4 +46,4 @@ class UserDeleteView(
 
     author_error_message = "У вас нет прав для изменения другого пользователя."
     redirect = "users:list"
-    success_message = "Пользователь успешно изменен."
+    success_message = "Пользователь успешно удалён."
