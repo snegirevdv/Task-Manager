@@ -3,21 +3,51 @@
 
 {% block content %}
   <div class="container wrapper flex-grow-1">
-    <h1 class="my-4">
-      {% if 'create' in request.resolver_match.url_name %}
-        Создание задачи
-      {% else %}
-        Изменение задачи
-      {% endif %}
-    </h1>
-    <form method="post">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      {% if 'create' in request.resolver_match.url_name %}
-        {% bootstrap_button button_type='submit' content='Создать' %}
-      {% else %}
-        {% bootstrap_button button_type='submit' content='Изменить' %}
-      {% endif %}
-    </form>
+    <h1 class="my-4">Просмотр задачи</h1>
+
+    <div class="card">
+      <div class="card-header bg-secondary text-white">
+        <h2>{{ task.name }}</h2>
+      </div>
+      <div class="card-body bg-light">
+        <p>{{ task.description }}</p>
+        <hr />
+        <div class="container">
+          <div class="row p-1">
+            <div class="col">Автор</div>
+            <div class="col">{{ task.author }}</div>
+          </div>
+          <div class="row p-1">
+            <div class="col">Исполнитель</div>
+            <div class="col">{{ task.executor }}</div>
+          </div>
+          <div class="row p-1">
+            <div class="col">Статус</div>
+            <div class="col">{{ task.status }}</div>
+          </div>
+          <div class="row p-1">
+            <div class="col">Дата создания</div>
+            <div class="col">{{ task.created_at }}</div>
+          </div>
+          <div class="row p-1">
+            <div class="col">
+              <h6>Метки:</h6>
+              <ul>
+                {% for label in task.labels.all %}
+                  <li>{{ label.name }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="row p-1">
+            <div class="col">
+              <a href="{% url 'tasks:update' task.pk %}">Изменить</a>
+              <br />
+              <a href="{% url 'tasks:delete' task.pk %}">Удалить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}

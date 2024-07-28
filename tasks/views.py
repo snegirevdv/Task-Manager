@@ -14,6 +14,11 @@ class TaskFilterView(mixins.LoginRequiredMixin, FilterView):
     template_name = "tasks/list.html"
 
 
+class TaskDetailView(mixins.LoginRequiredMixin, generic.DetailView):
+    model = models.Task
+    template_name = "tasks/detail.html"
+
+
 class TaskCreateView(
     mixins.LoginRequiredMixin,
     SuccessMessageMixin,
@@ -21,7 +26,7 @@ class TaskCreateView(
 ):
     model = models.Task
     form_class = forms.TaskForm
-    template_name = "tasks/detail.html"
+    template_name = "tasks/update_delete.html"
     success_url = reverse_lazy("tasks:list")
     success_message = "Задача успешно создана."
 
@@ -37,7 +42,7 @@ class TaskUpdateView(
 ):
     model = models.Task
     form_class = forms.TaskForm
-    template_name = "tasks/detail.html"
+    template_name = "tasks/update_delete.html"
     success_url = reverse_lazy("tasks:list")
     success_message = "Задача успешно изменена."
 
