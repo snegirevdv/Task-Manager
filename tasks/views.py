@@ -1,13 +1,16 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
+from django_filters.views import FilterView
 
 from core import mixins
 from tasks import forms, models
+from tasks.filters import TaskFilter
 
 
-class TaskFilterView(mixins.LoginRequiredMixin, generic.ListView):
+class TaskFilterView(mixins.LoginRequiredMixin, FilterView):
     model = models.Task
+    filterset_class = TaskFilter
     template_name = "tasks/list.html"
 
 

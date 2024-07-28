@@ -45,4 +45,6 @@ class StatusDeleteView(
     template_name = "statuses/delete.html"
     success_url = reverse_lazy("statuses:list")
     success_message = "Статус успешно удалён."
-    deletion_error_message = "Невозможно удалить статус, потому что он используется."
+    deletion_error_message = (
+        "Невозможно удалить статус, потому что он используется."
+    )

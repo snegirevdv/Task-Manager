@@ -45,4 +45,6 @@ class LabelDeleteView(
     template_name = "labels/delete.html"
     success_url = reverse_lazy("labels:list")
     success_message = "Метка успешно удалена."
-    deletion_error_message = 'Невозможно удалить метку, потому что она используется.'
+    deletion_error_message = (
+        "Невозможно удалить метку, потому что она используется."
+    )

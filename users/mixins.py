@@ -9,7 +9,10 @@ class OnlySelfUserCanEdit(
 ):
     def dispatch(self, request, *args, **kwargs):
         if not self.request.user == self.get_object():
-            messages.error(self.request, "У вас нет прав для изменения другого пользователя.")
+            messages.error(
+                self.request,
+                "У вас нет прав для изменения другого пользователя.",
+            )
             return redirect("users:list")
 
         return super().dispatch(request, *args, **kwargs)

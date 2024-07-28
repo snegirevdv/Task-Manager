@@ -48,6 +48,8 @@ class UserDeleteView(
 
     author_error_message = "У вас нет прав для изменения другого пользователя."
     author_error_redirect_url = reverse_lazy("users:list")
-    deletion_error_message = "Невозможно удалить пользователя, потому что он используется."
+    deletion_error_message = (
+        "Невозможно удалить пользователя, потому что он используется."
+    )
 
     success_message = "Пользователь успешно удалён."
