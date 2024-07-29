@@ -22,15 +22,16 @@
         <li class="nav-item">
           <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <input class="btn nav-link" type="submit" value="Log out" />
+            {% trans 'Log out' as logout %}
+            <input class="btn nav-link" type="submit" value="{{ logout }}" />
           </form>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">{% trans 'Sign in' %}</a>
+          <a class="nav-link" href="{% url 'login' %}">{% trans 'Log In' %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:create' %}">{% trans 'Sign up' %}</a>
+          <a class="nav-link" href="{% url 'users:create' %}">{% trans 'Register' %}</a>
         </li>
       {% endif %}
     </ul>

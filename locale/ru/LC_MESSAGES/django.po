@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 14:07+0300\n"
+"POT-Creation-Date: 2024-07-29 21:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,14 +24,14 @@ msgstr ""
 msgid "You are not authorized! Please log in again."
 msgstr ""
 
-#: core/models.py:9 templates/labels/list.html:13
-#: templates/statuses/list.html:13 templates/tasks/list.html:17
+#: core/models.py:9 templates/labels/list.html:14
+#: templates/statuses/list.html:14 templates/tasks/list.html:20
 msgid "Name"
 msgstr ""
 
-#: core/models.py:13 templates/labels/list.html:16
-#: templates/statuses/list.html:16 templates/tasks/detail.html:36
-#: templates/tasks/list.html:29 templates/users/list.html:19
+#: core/models.py:13 templates/labels/list.html:17
+#: templates/statuses/list.html:17 templates/tasks/detail.html:37
+#: templates/tasks/list.html:32 templates/users/list.html:20
 msgid "Created at"
 msgstr ""
 
@@ -52,7 +52,7 @@ msgid "label"
 msgstr ""
 
 #: labels/models.py:11 tasks/models.py:37 templates/includes/header.html:17
-#: templates/tasks/detail.html:42
+#: templates/labels/list.html:7 templates/tasks/detail.html:43
 msgid "Labels"
 msgstr ""
 
@@ -81,6 +81,7 @@ msgid "status"
 msgstr ""
 
 #: statuses/models.py:10 templates/includes/header.html:14
+#: templates/statuses/list.html:7
 msgid "Statuses"
 msgstr ""
 
@@ -112,18 +113,18 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: tasks/models.py:19 templates/tasks/detail.html:30
-#: templates/tasks/list.html:20
+#: tasks/models.py:19 templates/tasks/detail.html:31
+#: templates/tasks/list.html:23
 msgid "Status"
 msgstr ""
 
-#: tasks/models.py:25 templates/tasks/detail.html:18
-#: templates/tasks/list.html:23
+#: tasks/models.py:25 templates/tasks/detail.html:19
+#: templates/tasks/list.html:26
 msgid "Author"
 msgstr ""
 
-#: tasks/models.py:31 templates/tasks/detail.html:24
-#: templates/tasks/list.html:26
+#: tasks/models.py:31 templates/tasks/detail.html:25
+#: templates/tasks/list.html:29
 msgid "Executor"
 msgstr ""
 
@@ -135,24 +136,46 @@ msgstr ""
 msgid "The task has been successfully deleted."
 msgstr ""
 
-#: templates/base.html:5 templates/includes/header.html:5
+#: tasks/views.py:67
+msgid "Only author can delete the task."
+msgstr ""
+
+#: templates/base.html:7 templates/includes/header.html:5
 msgid "Task Manager"
 msgstr ""
 
-#: templates/includes/header.html:10 templates/users/list.html:6
+#: templates/includes/creation_form.html:8
+msgid "Create"
+msgstr ""
+
+#: templates/includes/creation_form.html:11 templates/labels/list.html:29
+#: templates/statuses/list.html:29 templates/tasks/detail.html:53
+#: templates/tasks/list.html:49 templates/users/list.html:34
+msgid "Edit"
+msgstr ""
+
+#: templates/includes/deletion_form.html:6
+msgid "Yes, delete"
+msgstr ""
+
+#: templates/includes/header.html:10 templates/users/list.html:7
 msgid "Users"
 msgstr ""
 
-#: templates/includes/header.html:20 templates/tasks/list.html:6
+#: templates/includes/header.html:20 templates/tasks/list.html:7
 msgid "Tasks"
 msgstr ""
 
-#: templates/includes/header.html:30
-msgid "Log in"
+#: templates/includes/header.html:25
+msgid "Log out"
 msgstr ""
 
-#: templates/includes/header.html:33
-msgid "Sign up"
+#: templates/includes/header.html:31
+msgid "Log In"
+msgstr ""
+
+#: templates/includes/header.html:34
+msgid "Register"
 msgstr ""
 
 #: templates/index.html:12
@@ -167,93 +190,95 @@ msgstr ""
 msgid "Learn more"
 msgstr ""
 
-#: templates/labels/create_update.html:8
+#: templates/labels/create_update.html:9
 msgid "Label creation"
 msgstr ""
 
-#: templates/labels/create_update.html:10
+#: templates/labels/create_update.html:11
 msgid "Label editing"
 msgstr ""
 
-#: templates/labels/delete.html:6
+#: templates/labels/delete.html:7
 msgid "Label deletion"
 msgstr ""
 
-#: templates/labels/delete.html:8 templates/statuses/delete.html:9
-#: templates/tasks/delete.html:9 templates/users/delete.html:9
+#: templates/labels/delete.html:9 templates/statuses/delete.html:10
+#: templates/tasks/delete.html:10 templates/users/delete.html:10
 msgid "Are you sure you want to delete"
 msgstr ""
 
-#: templates/labels/list.html:7
+#: templates/labels/list.html:8
 msgid "Create label"
 msgstr ""
 
-#: templates/labels/list.html:28 templates/statuses/list.html:28
-#: templates/tasks/detail.html:52 templates/tasks/list.html:46
-#: templates/users/list.html:33
-msgid "Edit"
+#: templates/labels/list.html:31 templates/statuses/list.html:31
+#: templates/tasks/detail.html:55 templates/tasks/list.html:51
+#: templates/users/list.html:36
+msgid "Delete"
 msgstr ""
 
-#: templates/labels/list.html:30 templates/statuses/list.html:30
-#: templates/tasks/detail.html:54 templates/tasks/list.html:48
-#: templates/users/list.html:35
-msgid "Delete"
-msgstr "Delete"
-
-#: templates/statuses/create_update.html:8
+#: templates/statuses/create_update.html:9
 msgid "Status creation"
 msgstr ""
 
-#: templates/statuses/create_update.html:10
+#: templates/statuses/create_update.html:11
 msgid "Status editing"
 msgstr ""
 
-#: templates/statuses/delete.html:6 templates/tasks/delete.html:6
+#: templates/statuses/delete.html:7 templates/tasks/delete.html:7
 msgid "Status deletion"
 msgstr ""
 
-#: templates/statuses/list.html:7
+#: templates/statuses/list.html:8
 msgid "Create status"
 msgstr ""
 
-#: templates/tasks/create_update.html:8
+#: templates/tasks/create_update.html:9
 msgid "Task creation"
 msgstr ""
 
-#: templates/tasks/create_update.html:10
+#: templates/tasks/create_update.html:11
 msgid "Task editing"
 msgstr ""
 
-#: templates/tasks/detail.html:6
+#: templates/tasks/detail.html:7
 msgid "Task detail"
 msgstr ""
 
-#: templates/tasks/list.html:7
+#: templates/tasks/list.html:9
 msgid "Create task"
 msgstr ""
 
-#: templates/users/create_update.html:8
+#: templates/tasks/list.html:12
+msgid "Show"
+msgstr ""
+
+#: templates/users/create_update.html:9
 msgid "Registration"
 msgstr ""
 
-#: templates/users/create_update.html:10
+#: templates/users/create_update.html:11
 msgid "User editing"
 msgstr ""
 
-#: templates/users/delete.html:6
+#: templates/users/delete.html:7
 msgid "User deletion"
 msgstr ""
 
-#: templates/users/list.html:13
+#: templates/users/list.html:14
 msgid "Username"
 msgstr ""
 
-#: templates/users/list.html:16
+#: templates/users/list.html:17
 msgid "Full name"
 msgstr ""
 
-#: templates/users/login.html:6
+#: templates/users/login.html:7
 msgid "Authorization"
+msgstr ""
+
+#: templates/users/login.html:11
+msgid "Login"
 msgstr ""
 
 #: users/apps.py:8
