@@ -1,23 +1,36 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load django_bootstrap5 %}
 
 {% block content %}
   <div class="container wrapper flex-grow-1">
-    <h1 class="my-4">Задачи</h1>
-    <a class="btn btn-primary mb-3" href="{% url 'tasks:create' %}">Создать задачу</a>
+    <h1 class="my-4">{% trans 'Tasks' %}</h1>
+    {% url 'tasks:create' as create_task_url %}
+    <a class="btn btn-primary mb-3" href="{{ create_task_url }}">{% trans 'Create task' %}</a>
     <form method="get">
       {% bootstrap_form filter.form %}
-      {% bootstrap_button button_type='submit' content='Показать' %}
+      {% trans 'Show' as show %}
+      {% bootstrap_button button_type='submit' content=show %}
     </form>
     <table class="table table-striped">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Имя</th>
-          <th>Статус</th>
-          <th>Автор</th>
-          <th>Исполнитель</th>
-          <th>Дата создания</th>
+          <th>
+            {% trans 'Name' %}
+          </th>
+          <th>
+            {% trans 'Status' %}
+          </th>
+          <th>
+            {% trans 'Author' %}
+          </th>
+          <th>
+            {% trans 'Executor' %}
+          </th>
+          <th>
+            {% trans 'Created at' %}
+          </th>
           <th></th>
         </tr>
       </thead>
@@ -33,9 +46,9 @@
             <td>{{ task.executor }}</td>
             <td>{{ task.created_at }}</td>
             <td>
-              <a href="{% url 'tasks:update' task.pk %}">Изменить</a>
+              <a href="{% url 'tasks:update' task.pk %}">{% trans 'Edit' %}</a>
               <br />
-              <a href="{% url 'tasks:delete' task.pk %}">Удалить</a>
+              <a href="{% url 'tasks:delete' task.pk %}">{% trans 'Delete' %}</a>
             </td>
           </tr>
         {% endfor %}

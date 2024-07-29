@@ -1,6 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
+from django.utils.translation import gettext_lazy as _
 
 from core.mixins import LoginRequiredMixin, ProtectedDeletionMixin
 from users.mixins import OnlySelfUserCanEdit
@@ -8,15 +9,18 @@ from users import forms, models
 
 
 class UserListView(generic.ListView):
+    """User list view."""
     model = models.User
     template_name = "users/list.html"
 
 
 class UserCreateView(SuccessMessageMixin, generic.CreateView):
-    template_name = "users/detail.html"
+    """User registration view."""
+
+    template_name = "users/create_update.html"
     form_class = forms.UserForm
-    success_url = reverse_lazy("login")
-    success_message = "Пользователь успешно зарегистрирован"
+    success_url: str = reverse_lazy("login")
+    success_message: str = _("The user has been successfully registered.")
 
 
 class UserUpdateView(
@@ -25,14 +29,13 @@ class UserUpdateView(
     SuccessMessageMixin,
     generic.UpdateView,
 ):
-    model = models.User
-    template_name = "users/detail.html"
-    form_class = forms.UserForm
-    success_url = reverse_lazy("users:list")
+    """User editing view."""
 
-    author_error_message = "У вас нет прав для изменения другого пользователя."
-    author_error_redirect_url = reverse_lazy("users:list")
-    success_message = "Пользователь успешно изменен."
+    model = models.User
+    template_name = "users/create_update.html"
+    form_class = forms.UserForm
+    success_url: str = reverse_lazy("users:list")
+    success_message = _("The user has been successfully updated.")
 
 
 class UserDeleteView(
@@ -42,14 +45,14 @@ class UserDeleteView(
     SuccessMessageMixin,
     generic.DeleteView,
 ):
+    """User deletion view."""
+
     model = models.User
     template_name = "users/delete.html"
     success_url = reverse_lazy("users:list")
 
-    author_error_message = "У вас нет прав для изменения другого пользователя."
-    author_error_redirect_url = reverse_lazy("users:list")
     deletion_error_message = (
-        "Невозможно удалить пользователя, потому что он используется."
+        _("The user cannot be deleted because it is in use.")
     )
 
-    success_message = "Пользователь успешно удалён."
+    success_message = _("The user has been successfully deleted.")

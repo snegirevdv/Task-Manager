@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+<form method="post">
+  {% csrf_token %}
+  {% trans 'Yes, delete' as delete_text %}
+  {% bootstrap_button button_type='submit' button_class='btn-danger' content=delete_text %}
+</form>

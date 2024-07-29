@@ -3,10 +3,8 @@ from users import models
 
 
 class UserForm(UserCreationForm):
+    """User creation and editing form."""
+
     class Meta:
         model = models.User
-        fields = (
-            "first_name",
-            "last_name",
-            "username",
-        )
+        fields = ("first_name", "last_name", "username")

@@ -1,5 +1,6 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from core import mixins
@@ -7,7 +8,9 @@ from statuses import forms, models
 
 
 class StatusListView(mixins.LoginRequiredMixin, generic.ListView):
-    model = models.Status
+    """List of statuses view."""
+
+    model = models.TaskStatus
     template_name = "statuses/list.html"
 
 
@@ -16,11 +19,12 @@ class StatusCreateView(
     SuccessMessageMixin,
     generic.CreateView,
 ):
-    model = models.Status
+    """Status creation view."""
+    model = models.TaskStatus
     form_class = forms.StatusForm
-    template_name = "statuses/detail.html"
-    success_url = reverse_lazy("statuses:list")
-    success_message = "Статус успешно создан."
+    template_name = "statuses/create_update.html"
+    success_url: str = reverse_lazy("statuses:list")
+    success_message: str = _("The status has been successfully created.")
 
 
 class StatusUpdateView(
@@ -28,11 +32,13 @@ class StatusUpdateView(
     SuccessMessageMixin,
     generic.UpdateView,
 ):
-    model = models.Status
+    """Status editing view."""
+
+    model = models.TaskStatus
     form_class = forms.StatusForm
-    template_name = "statuses/detail.html"
+    template_name = "statuses/create_update.html"
     success_url = reverse_lazy("statuses:list")
-    success_message = "Статус успешно изменён."
+    success_message = _("The status has been successfully updated.")
 
 
 class StatusDeleteView(
@@ -41,10 +47,12 @@ class StatusDeleteView(
     SuccessMessageMixin,
     generic.DeleteView,
 ):
-    model = models.Status
+    """Status deletion view."""
+
+    model = models.TaskStatus
     template_name = "statuses/delete.html"
     success_url = reverse_lazy("statuses:list")
-    success_message = "Статус успешно удалён."
+    success_message = _("The status has been successfully deleted.")
     deletion_error_message = (
-        "Невозможно удалить статус, потому что он используется."
+        _("The status cannot be deleted because it is in use.")
     )

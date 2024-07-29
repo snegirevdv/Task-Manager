@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="container wrapper flex-grow-1">
+    <h1 class="my-4">
+      {% if 'create' in request.resolver_match.url_name %}
+        {% trans 'Registration' %}
+      {% else %}
+        {% trans 'User editing' %}
+      {% endif %}
+    </h1>
+    {% include 'includes/creation_form.html' %}
+  </div>
+{% endblock %}

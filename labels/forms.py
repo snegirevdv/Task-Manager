@@ -4,6 +4,8 @@ from labels import models
 
 
 class LabelForm(forms.ModelForm):
+    """Label creation and editing form."""
+
     class Meta:
-        model = models.Label
+        model = models.TaskLabel
         fields = ("name",)

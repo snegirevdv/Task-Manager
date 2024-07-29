@@ -1,29 +1,34 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load django_bootstrap5 %}
 
 {% block content %}
   <div class="container wrapper flex-grow-1">
-    <h1 class="my-4">Статусы</h1>
-    <a class="btn btn-primary mb-3" href="{% url 'statuses:create' %}">Создать статус</a>
+    <h1 class="my-4">{% trans 'Statuses' %}</h1>
+    <a class="btn btn-primary mb-3" href="{% url 'statuses:create' %}">{% trans 'Create status' %}</a>
     <table class="table table-striped">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Имя</th>
-          <th>Дата создания</th>
+          <th>
+            {% trans 'Name' %}
+          </th>
+          <th>
+            {% trans 'Created at' %}
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {% for status in status_list %}
+        {% for taskstatus in taskstatus_list %}
           <tr>
-            <td>{{ status.pk }}</td>
-            <td>{{ status.name }}</td>
-            <td>{{ status.created_at }}</td>
+            <td>{{ taskstatus.pk }}</td>
+            <td>{{ taskstatus.name }}</td>
+            <td>{{ taskstatus.created_at }}</td>
             <td>
-              <a href="{% url 'statuses:update' status.pk %}">Изменить</a>
+              <a href="{% url 'statuses:update' taskstatus.pk %}">{% trans 'Edit' %}</a>
               <br />
-              <a href="{% url 'statuses:delete' status.pk %}">Удалить</a>
+              <a href="{% url 'statuses:delete' taskstatus.pk %}">{% trans 'Delete' %}</a>
             </td>
           </tr>
         {% endfor %}

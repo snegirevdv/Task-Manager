@@ -1,15 +1,11 @@
-from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+from core.models import BaseModel
 
 
-class Label(models.Model):
-    name = models.CharField(
-        verbose_name="Имя",
-        max_length=100,
-    )
-    created_at = models.DateTimeField(
-        verbose_name="Дата создания",
-        auto_now_add=True,
-    )
+class TaskLabel(BaseModel):
+    """Task label model."""
 
-    def __str__(self):
-        return self.name
+    class Meta:
+        verbose_name: str = _("label")
+        verbose_name_plural: str = _("Labels")

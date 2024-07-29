@@ -1,15 +1,10 @@
-from django.db import models
+from core.models import BaseModel
+from django.utils.translation import gettext_lazy as _
 
 
-class Status(models.Model):
-    name = models.CharField(
-        verbose_name="Имя",
-        max_length=100,
-    )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Дата создания",
-    )
+class TaskStatus(BaseModel):
+    """Task status model."""
 
-    def __str__(self):
-        return self.name
+    class Meta:
+        verbose_name: str = _("status")
+        verbose_name_plural: str = _("Statuses")

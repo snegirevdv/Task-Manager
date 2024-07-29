@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load django_bootstrap5 %}
 
 {% block content %}
   <div class="container wrapper flex-grow-1">
-    <h1 class="my-4">Пользователи</h1>
+    <h1 class="my-4">{% trans 'Users' %}</h1>
 
     <table class="table table-striped">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Имя пользователя</th>
-          <th>Полное имя</th>
-          <th>Дата создания</th>
+          <th>
+            {% trans 'Username' %}
+          </th>
+          <th>
+            {% trans 'Full name' %}
+          </th>
+          <th>
+            {% trans 'Created at' %}
+          </th>
           <th></th>
         </tr>
       </thead>
@@ -24,9 +31,9 @@
             <td>{{ user.date_joined }}</td>
             <td>
               {% if user == request.user %}
-                <a href="{% url 'users:update' user.id %}">Изменить</a>
+                <a href="{% url 'users:update' user.id %}">{% trans 'Edit' %}</a>
                 <br />
-                <a href="{% url 'users:delete' user.id %}">Удалить</a>
+                <a href="{% url 'users:delete' user.id %}">{% trans 'Delete' %}</a>
               {% endif %}
             </td>
           </tr>

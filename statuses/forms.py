@@ -4,6 +4,8 @@ from statuses import models
 
 
 class StatusForm(forms.ModelForm):
+    """Status creation and editing form."""
+
     class Meta:
-        model = models.Status
+        model = models.TaskStatus
         fields = ("name",)
