@@ -10,7 +10,14 @@ from users import forms, models
 
 class UserListView(generic.ListView):
     """User list view."""
-    model = models.User
+
+    queryset = models.User.objects.only(
+        "pk",
+        "username",
+        "first_name",
+        "last_name",
+        "date_joined",
+    )
     template_name = "users/list.html"
 
 
@@ -51,8 +58,8 @@ class UserDeleteView(
     template_name = "users/delete.html"
     success_url = reverse_lazy("users:list")
 
-    deletion_error_message = (
-        _("The user cannot be deleted because it is in use.")
+    deletion_error_message = _(
+        "The user cannot be deleted because it is in use."
     )
 
     success_message = _("The user has been successfully deleted.")

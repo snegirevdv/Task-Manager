@@ -12,7 +12,7 @@ class UserForm(UserCreationForm):
 
     def clean_username(self):
         """When updating, the username is checked only if it was changed."""
-        username = self.cleaned_data.get('username')
+        username = self.cleaned_data.get("username")
 
         if self.instance and self.instance.username == username:
             return username

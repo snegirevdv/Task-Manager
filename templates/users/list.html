@@ -30,11 +30,9 @@
             <td>{{ user.first_name }} {{ user.last_name }}</td>
             <td>{{ user.date_joined }}</td>
             <td>
-              {% if user == request.user %}
-                <a href="{% url 'users:update' user.id %}">{% trans 'Edit' %}</a>
-                <br />
-                <a href="{% url 'users:delete' user.id %}">{% trans 'Delete' %}</a>
-              {% endif %}
+              <a href="{% url 'users:update' user.id %}">{% trans 'Edit' %}</a>
+              <br />
+              <a href="{% url 'users:delete' user.id %}">{% trans 'Delete' %}</a>
             </td>
           </tr>
         {% endfor %}

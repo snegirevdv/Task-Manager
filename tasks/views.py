@@ -1,4 +1,5 @@
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
@@ -12,7 +13,25 @@ from tasks.mixins import OnlyAuthorCanEditMixin
 class TaskFilterView(LoginRequiredMixin, FilterView):
     """Task list view with filter."""
 
-    model = models.Task
+    queryset = (
+        models.Task.objects.select_related(
+            "status",
+            "author",
+            "executor",
+        )
+        .prefetch_related("labels")
+        .only(
+            "id",
+            "name",
+            "status__name",
+            "author__first_name",
+            "author__last_name",
+            "executor__first_name",
+            "executor__last_name",
+            "created_at",
+            "labels__name",
+        )
+    )
     filterset_class = filters.TaskFilter
     template_name = "tasks/list.html"
 
@@ -20,11 +39,15 @@ class TaskFilterView(LoginRequiredMixin, FilterView):
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
     """Task detail view."""
 
-    model = models.Task
+    queryset = models.Task.objects.prefetch_related("labels")
     template_name = "tasks/detail.html"
 
 
-class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView,):
+class TaskCreateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.CreateView,
+):
     """Task creation view. Author of task is the current user."""
 
     model = models.Task
@@ -38,16 +61,20 @@ class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView
         return super().form_valid(form)
 
 
-class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView,):
+class TaskUpdateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.UpdateView,
+):
     """Task editing view. Only author can edit the task."""
 
-    model = models.Task
+    queryset = models.Task.objects.prefetch_related("labels")
     form_class = forms.TaskForm
     template_name = "tasks/create_update.html"
     success_url = reverse_lazy("tasks:list")
     success_message = _("The task has been successfully updated.")
 
-    def form_valid(self, form: forms.TaskForm):
+    def form_valid(self, form: forms.TaskForm) -> HttpResponse:
         form.instance.author = self.request.user
         return super().form_valid(form)
 

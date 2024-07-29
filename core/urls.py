@@ -3,7 +3,11 @@ from django.urls import path
 from core import views
 
 urlpatterns = [
-    path(route="", view=views.IndexView.as_view(), name="index",),
+    path(
+        route="",
+        view=views.IndexView.as_view(),
+        name="index",
+    ),
     path(
         route="login/",
         view=views.LoginView.as_view(),

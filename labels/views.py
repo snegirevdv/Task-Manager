@@ -10,7 +10,7 @@ from labels import forms, models
 class LabelListView(LoginRequiredMixin, generic.ListView):
     """List of labels view."""
 
-    model = models.TaskLabel
+    queryset = models.TaskLabel.objects.only("pk", "name", "created_at")
     template_name = "labels/list.html"
 
 
@@ -54,6 +54,6 @@ class LabelDeleteView(
     template_name = "labels/delete.html"
     success_url: str = reverse_lazy("labels:list")
     success_message: str = _("The label has been successfully deleted.")
-    deletion_error_message: str = (
-        _("The label cannot be deleted because it is in use.")
+    deletion_error_message: str = _(
+        "The label cannot be deleted because it is in use."
     )

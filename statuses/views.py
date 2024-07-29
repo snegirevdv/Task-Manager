@@ -10,7 +10,7 @@ from statuses import forms, models
 class StatusListView(mixins.LoginRequiredMixin, generic.ListView):
     """List of statuses view."""
 
-    model = models.TaskStatus
+    queryset = models.TaskStatus.objects.only("pk", "name", "created_at")
     template_name = "statuses/list.html"
 
 
@@ -20,6 +20,7 @@ class StatusCreateView(
     generic.CreateView,
 ):
     """Status creation view."""
+
     model = models.TaskStatus
     form_class = forms.StatusForm
     template_name = "statuses/create_update.html"
@@ -53,6 +54,6 @@ class StatusDeleteView(
     template_name = "statuses/delete.html"
     success_url = reverse_lazy("statuses:list")
     success_message = _("The status has been successfully deleted.")
-    deletion_error_message = (
-        _("The status cannot be deleted because it is in use.")
+    deletion_error_message = _(
+        "The status cannot be deleted because it is in use."
     )

@@ -33,274 +33,274 @@ msgstr ""
 #: templates/statuses/list.html:17 templates/tasks/detail.html:37
 #: templates/tasks/list.html:32 templates/users/list.html:20
 msgid "Created at"
-msgstr ""
+msgstr "Дата создания"
 
 #: core/views.py:21
 msgid "You are logged in."
-msgstr ""
+msgstr "Вы залогинены"
 
 #: core/views.py:30
 msgid "You are logged out."
-msgstr ""
+msgstr "Вы разлогинены"
 
 #: labels/apps.py:8
 msgid "labels"
-msgstr ""
+msgstr "метки"
 
 #: labels/models.py:10
 msgid "label"
-msgstr ""
+msgstr "метка"
 
 #: labels/models.py:11 tasks/models.py:37 templates/includes/header.html:17
 #: templates/labels/list.html:7 templates/tasks/detail.html:43
 msgid "Labels"
-msgstr ""
+msgstr "Метки"
 
 #: labels/views.py:28
 msgid "The label has been successfully created."
-msgstr ""
+msgstr "Метка успешно создана"
 
 #: labels/views.py:42
 msgid "The label has been successfully updated."
-msgstr ""
+msgstr "Метка успешно создана"
 
 #: labels/views.py:56
 msgid "The label has been successfully deleted."
-msgstr ""
+msgstr "Метка успешно изменена"
 
 #: labels/views.py:58
 msgid "The label cannot be deleted because it is in use."
-msgstr ""
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: statuses/apps.py:8
 msgid "statuses"
-msgstr ""
+msgstr "статусы"
 
 #: statuses/models.py:9
 msgid "status"
-msgstr ""
+msgstr "статус"
 
 #: statuses/models.py:10 templates/includes/header.html:14
 #: templates/statuses/list.html:7
 msgid "Statuses"
-msgstr ""
+msgstr "Статусы"
 
 #: statuses/views.py:27
 msgid "The status has been successfully created."
-msgstr ""
+msgstr "Статус успешно создан"
 
 #: statuses/views.py:41
 msgid "The status has been successfully updated."
-msgstr ""
+msgstr "Статус успешно изменен"
 
 #: statuses/views.py:55
 msgid "The status has been successfully deleted."
-msgstr ""
+msgstr "Статус успешно удален"
 
 #: statuses/views.py:57
 msgid "The status cannot be deleted because it is in use."
-msgstr ""
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: tasks/apps.py:8
 msgid "tasks"
-msgstr ""
+msgstr "задачи"
 
 #: tasks/filters.py:16
 msgid "Only own tasks"
-msgstr ""
+msgstr "Только свои задачи"
 
 #: tasks/models.py:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: tasks/models.py:19 templates/tasks/detail.html:31
 #: templates/tasks/list.html:23
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: tasks/models.py:25 templates/tasks/detail.html:19
 #: templates/tasks/list.html:26
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
 #: tasks/models.py:31 templates/tasks/detail.html:25
 #: templates/tasks/list.html:29
 msgid "Executor"
-msgstr ""
+msgstr "Исполнитель"
 
 #: tasks/views.py:34 tasks/views.py:48
 msgid "The task has been successfully updated."
-msgstr ""
+msgstr "Задача успешно изменена"
 
 #: tasks/views.py:66
 msgid "The task has been successfully deleted."
-msgstr ""
+msgstr "Задача успешно удалена"
 
 #: tasks/views.py:67
 msgid "Only author can delete the task."
-msgstr ""
+msgstr "Задачу может удалить только ее автор"
 
 #: templates/base.html:7 templates/includes/header.html:5
 msgid "Task Manager"
-msgstr ""
+msgstr "Менеджер задач"
 
 #: templates/includes/creation_form.html:8
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 #: templates/includes/creation_form.html:11 templates/labels/list.html:29
 #: templates/statuses/list.html:29 templates/tasks/detail.html:53
 #: templates/tasks/list.html:49 templates/users/list.html:34
 msgid "Edit"
-msgstr ""
+msgstr "Изменить"
 
 #: templates/includes/deletion_form.html:6
 msgid "Yes, delete"
-msgstr ""
+msgstr "Да, удалить"
 
 #: templates/includes/header.html:10 templates/users/list.html:7
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 #: templates/includes/header.html:20 templates/tasks/list.html:7
 msgid "Tasks"
-msgstr ""
+msgstr "Задачи"
 
 #: templates/includes/header.html:25
 msgid "Log out"
-msgstr ""
+msgstr "Выход"
 
 #: templates/includes/header.html:31
 msgid "Log In"
-msgstr ""
+msgstr "Вход"
 
 #: templates/includes/header.html:34
 msgid "Register"
-msgstr ""
+msgstr "Регистрация"
 
 #: templates/index.html:12
 msgid "Hello from Hexlet!"
-msgstr ""
+msgstr "Привет от Хекслета!"
 
 #: templates/index.html:15
 msgid "Practical programming courses"
-msgstr ""
+msgstr "Практические курсы по программированию"
 
 #: templates/index.html:18
 msgid "Learn more"
-msgstr ""
+msgstr "Узнать больше"
 
 #: templates/labels/create_update.html:9
 msgid "Label creation"
-msgstr ""
+msgstr "Создать метку"
 
 #: templates/labels/create_update.html:11
 msgid "Label editing"
-msgstr ""
+msgstr "Изменение метки"
 
 #: templates/labels/delete.html:7
 msgid "Label deletion"
-msgstr ""
+msgstr "Удаление метки"
 
 #: templates/labels/delete.html:9 templates/statuses/delete.html:10
 #: templates/tasks/delete.html:10 templates/users/delete.html:10
 msgid "Are you sure you want to delete"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить"
 
 #: templates/labels/list.html:8
 msgid "Create label"
-msgstr ""
+msgstr "Создать метку"
 
 #: templates/labels/list.html:31 templates/statuses/list.html:31
 #: templates/tasks/detail.html:55 templates/tasks/list.html:51
 #: templates/users/list.html:36
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: templates/statuses/create_update.html:9
 msgid "Status creation"
-msgstr ""
+msgstr "Создать статус"
 
 #: templates/statuses/create_update.html:11
 msgid "Status editing"
-msgstr ""
+msgstr "Изменение статуса"
 
 #: templates/statuses/delete.html:7 templates/tasks/delete.html:7
 msgid "Status deletion"
-msgstr ""
+msgstr "Удаление статуса"
 
 #: templates/statuses/list.html:8
 msgid "Create status"
-msgstr ""
+msgstr "Создать статус"
 
 #: templates/tasks/create_update.html:9
 msgid "Task creation"
-msgstr ""
+msgstr "Создать задачу"
 
 #: templates/tasks/create_update.html:11
 msgid "Task editing"
-msgstr ""
+msgstr "Изменение задачи"
 
 #: templates/tasks/detail.html:7
 msgid "Task detail"
-msgstr ""
+msgstr "Просмотр задачи"
 
 #: templates/tasks/list.html:9
 msgid "Create task"
-msgstr ""
+msgstr "Создать задачу"
 
 #: templates/tasks/list.html:12
 msgid "Show"
-msgstr ""
+msgstr "Показать"
 
 #: templates/users/create_update.html:9
 msgid "Registration"
-msgstr ""
+msgstr "Регистрация"
 
 #: templates/users/create_update.html:11
 msgid "User editing"
-msgstr ""
+msgstr "Изменение пользователя"
 
 #: templates/users/delete.html:7
 msgid "User deletion"
-msgstr ""
+msgstr "Удаление пользователя"
 
 #: templates/users/list.html:14
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: templates/users/list.html:17
 msgid "Full name"
-msgstr ""
+msgstr "Полное имя"
 
 #: templates/users/login.html:7
 msgid "Authorization"
-msgstr ""
+msgstr "Вход"
 
 #: templates/users/login.html:11
 msgid "Login"
-msgstr ""
+msgstr "Войти"
 
 #: users/apps.py:8
 msgid "users"
-msgstr ""
+msgstr "пользователи"
 
 #: users/mixins.py:17
 msgid "You do not have permission to edit another user."
-msgstr ""
+msgstr "У вас нет прав для изменения другого пользователя."
 
 #: users/views.py:23
 msgid "The user has been successfully registered."
-msgstr ""
+msgstr "Пользователь успешно зарегистрирован"
 
 #: users/views.py:38
 msgid "The user has been successfully updated."
-msgstr ""
+msgstr "Пользователь успешно изменен"
 
 #: users/views.py:55
 msgid "The user cannot be deleted because it is in use."
-msgstr ""
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: users/views.py:58
 msgid "The user has been successfully deleted."
-msgstr ""
+msgstr "Пользователь успешно удален"
