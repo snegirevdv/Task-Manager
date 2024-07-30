@@ -63,6 +63,7 @@ class TaskCreateView(
 
 class TaskUpdateView(
     LoginRequiredMixin,
+    OnlyAuthorCanEditMixin,
     SuccessMessageMixin,
     generic.UpdateView,
 ):
@@ -73,10 +74,7 @@ class TaskUpdateView(
     template_name = "tasks/create_update.html"
     success_url = reverse_lazy("tasks:list")
     success_message = _("The task has been successfully updated.")
-
-    def form_valid(self, form: forms.TaskForm) -> HttpResponse:
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    author_error_message: str = _("Only author can edit the task.")
 
 
 class TaskDeleteView(
@@ -92,4 +90,3 @@ class TaskDeleteView(
     success_url: str = reverse_lazy("tasks:list")
     success_message: str = _("The task has been successfully deleted.")
     author_error_message: str = _("Only author can delete the task.")
-    author_error_redirect_url: str = reverse_lazy("tasks:list")

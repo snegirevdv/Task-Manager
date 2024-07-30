@@ -16,6 +16,6 @@ class OnlyAuthorCanEditMixin(
     def dispatch(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         if not self.request.user == self.get_object().author:
             messages.error(self.request, self.author_error_message)
-            return redirect(self.author_error_redirect_url)
+            return redirect("tasks:list")
 
         return super().dispatch(request, *args, **kwargs)
