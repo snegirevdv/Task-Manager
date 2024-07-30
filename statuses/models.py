@@ -6,5 +6,5 @@ class TaskStatus(BaseModel):
     """Task status model."""
 
     class Meta:
-        verbose_name: str = _("status")
-        verbose_name_plural: str = _("Statuses")
+        verbose_name = _("status")
+        verbose_name_plural = _("Statuses")

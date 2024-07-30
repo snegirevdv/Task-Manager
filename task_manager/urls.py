@@ -8,5 +8,4 @@ urlpatterns = [
     path("labels/", include("labels.urls")),
     path("tasks/", include("tasks.urls")),
     path("", include("core.urls")),
-    path("i18n/", include("django.conf.urls.i18n")),
 ]

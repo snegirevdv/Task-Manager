@@ -7,5 +7,5 @@ class TaskLabel(BaseModel):
     """Task label model."""
 
     class Meta:
-        verbose_name: str = _("label")
-        verbose_name_plural: str = _("Labels")
+        verbose_name = _("label")
+        verbose_name_plural = _("Labels")

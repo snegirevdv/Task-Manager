@@ -38,8 +38,8 @@ class StatusUpdateView(
     model = models.TaskStatus
     form_class = forms.StatusForm
     template_name = "statuses/create_update.html"
-    success_url = reverse_lazy("statuses:list")
-    success_message = _("The status has been successfully updated.")
+    success_url: str = reverse_lazy("statuses:list")
+    success_message: str = _("The status has been successfully updated.")
 
 
 class StatusDeleteView(
@@ -52,8 +52,8 @@ class StatusDeleteView(
 
     model = models.TaskStatus
     template_name = "statuses/delete.html"
-    success_url = reverse_lazy("statuses:list")
-    success_message = _("The status has been successfully deleted.")
-    deletion_error_message = _(
+    success_url: str = reverse_lazy("statuses:list")
+    success_message: str = _("The status has been successfully deleted.")
+    deletion_error_message: str = _(
         "The status cannot be deleted because it is in use."
     )

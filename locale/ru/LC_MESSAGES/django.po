@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 21:11+0300\n"
+"POT-Creation-Date: 2024-07-31 01:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,19 +85,19 @@ msgstr "статус"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: statuses/views.py:27
+#: statuses/views.py:28
 msgid "The status has been successfully created."
 msgstr "Статус успешно создан"
 
-#: statuses/views.py:41
+#: statuses/views.py:42
 msgid "The status has been successfully updated."
 msgstr "Статус успешно изменен"
 
-#: statuses/views.py:55
+#: statuses/views.py:56
 msgid "The status has been successfully deleted."
 msgstr "Статус успешно удален"
 
-#: statuses/views.py:57
+#: statuses/views.py:58
 msgid "The status cannot be deleted because it is in use."
 msgstr "Невозможно удалить статус, потому что он используется"
 
@@ -128,15 +128,21 @@ msgstr "Автор"
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: tasks/views.py:34 tasks/views.py:48
+#: tasks/views.py:56 tasks/views.py:75
 msgid "The task has been successfully updated."
 msgstr "Задача успешно изменена"
 
-#: tasks/views.py:66
+#: tasks/views.py:76
+#, fuzzy
+#| msgid "Only author can delete the task."
+msgid "Only author can edit the task."
+msgstr "Задачу может изменить только ее автор"
+
+#: tasks/views.py:90
 msgid "The task has been successfully deleted."
 msgstr "Задача успешно удалена"
 
-#: tasks/views.py:67
+#: tasks/views.py:91
 msgid "Only author can delete the task."
 msgstr "Задачу может удалить только ее автор"
 
@@ -150,7 +156,7 @@ msgstr "Создать"
 
 #: templates/includes/creation_form.html:11 templates/labels/list.html:29
 #: templates/statuses/list.html:29 templates/tasks/detail.html:53
-#: templates/tasks/list.html:49 templates/users/list.html:34
+#: templates/tasks/list.html:49 templates/users/list.html:33
 msgid "Edit"
 msgstr "Изменить"
 
@@ -213,7 +219,7 @@ msgstr "Создать метку"
 
 #: templates/labels/list.html:31 templates/statuses/list.html:31
 #: templates/tasks/detail.html:55 templates/tasks/list.html:51
-#: templates/users/list.html:36
+#: templates/users/list.html:35
 msgid "Delete"
 msgstr "Удалить"
 
@@ -289,18 +295,18 @@ msgstr "пользователи"
 msgid "You do not have permission to edit another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: users/views.py:23
+#: users/views.py:30
 msgid "The user has been successfully registered."
 msgstr "Пользователь успешно зарегистрирован"
 
-#: users/views.py:38
+#: users/views.py:45
 msgid "The user has been successfully updated."
 msgstr "Пользователь успешно изменен"
 
-#: users/views.py:55
+#: users/views.py:62
 msgid "The user cannot be deleted because it is in use."
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: users/views.py:58
+#: users/views.py:65
 msgid "The user has been successfully deleted."
 msgstr "Пользователь успешно удален"

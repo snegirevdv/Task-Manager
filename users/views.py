@@ -42,7 +42,7 @@ class UserUpdateView(
     template_name = "users/create_update.html"
     form_class = forms.UserForm
     success_url: str = reverse_lazy("users:list")
-    success_message = _("The user has been successfully updated.")
+    success_message: str = _("The user has been successfully updated.")
 
 
 class UserDeleteView(
@@ -58,8 +58,8 @@ class UserDeleteView(
     template_name = "users/delete.html"
     success_url = reverse_lazy("users:list")
 
-    deletion_error_message = _(
+    deletion_error_message: str = _(
         "The user cannot be deleted because it is in use."
     )
 
-    success_message = _("The user has been successfully deleted.")
+    success_message: str = _("The user has been successfully deleted.")
