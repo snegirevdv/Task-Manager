@@ -3,7 +3,6 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "Task Manager"
 authors = ["Denis <snegirev.dv@gmail.com>"]
-license = "MIT"
 readme = "README.md"
 packages = [{ include = "task_manager" }]
 
