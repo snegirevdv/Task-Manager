@@ -10,14 +10,14 @@ from users.forms import UserForm
 from users.models import User
 
 
-def test_user_list_success(client: Client):
+def test_user_list_success(client: Client, author: User, another_user: User):
     url: str = reverse("users:list")
     response: HttpResponse = client.get(url)
     assert response.status_code == HTTPStatus.OK
     assert len(response.context["user_list"]) == User.objects.count()
 
 
-def test_register_page_success(client: Client, author_form_data):
+def test_register_form_success(client: Client, author_form_data):
     url = reverse("users:create")
     form = UserForm(data=author_form_data)
     assert form.is_valid(), form.errors

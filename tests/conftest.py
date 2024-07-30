@@ -1,6 +1,10 @@
 import pytest
-from users.models import User
 from django.test import Client
+
+from users.models import User
+from statuses.models import TaskStatus
+from labels.models import TaskLabel
+from tasks.models import Task
 
 
 @pytest.fixture(autouse=True)
@@ -62,3 +66,26 @@ def another_user_client(another_user):
     client = Client()
     client.force_login(another_user)
     return client
+
+
+@pytest.fixture
+def task_status():
+    return TaskStatus.objects.create(name="Test Status")
+
+
+@pytest.fixture
+def task_label():
+    return TaskLabel.objects.create(name="Test Label")
+
+
+@pytest.fixture
+def task(author, task_status, another_user, task_label):
+    new_task = Task.objects.create(
+        name="Test Task",
+        status=task_status,
+        author=author,
+        executor=another_user,
+    )
+    new_task.labels.add(task_label)
+
+    return new_task
