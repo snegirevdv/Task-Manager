@@ -39,26 +39,30 @@ Task Manager is a web application that helps manage tasks effectively. It suppor
 To install and run the project, follow these steps:
 
 1. **Clone the repository:**
-   '''sh
-   git clone https://github.com/snegirevdv/python-django-developer-project-52.git
-   cd python-django-developer-project-52
-   '''
+
+```sh
+git clone https://github.com/snegirevdv/python-django-developer-project-52.git
+cd python-django-developer-project-52
+```
 
 2. **Install dependencies:**
    You must have [Poetry](https://python-poetry.org/) installed.
-   '''sh
-   poetry install
-   '''
+
+```sh
+poetry install
+```
 
 3. **Apply migrations:**
-   '''sh
-   poetry run python manage.py migrate
-   '''
+
+```sh
+poetry run python manage.py migrate
+```
 
 4. **Run the development server:**
-   '''sh
-   poetry run python manage.py runserver
-   '''
+
+```sh
+poetry run python manage.py runserver
+```
 
 ## Usage
 
