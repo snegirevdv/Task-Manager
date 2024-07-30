@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_bootstrap5",
     "django_filters",
+    "pytest_django",
     "labels",
     "statuses",
     "tasks",

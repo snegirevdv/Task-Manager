@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.contrib.auth import mixins
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
 from django.views import generic

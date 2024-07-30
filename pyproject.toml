@@ -17,6 +17,8 @@ gunicorn = "^22.0.0"
 django-bootstrap5 = "^24.2"
 black = "^24.4.2"
 django-filter = "^24.2"
+pytest = "^8.3.2"
+pytest-django = "^4.8.0"
 
 [build-system]
 requires = ["poetry-core"]
