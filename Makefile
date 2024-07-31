@@ -18,3 +18,11 @@ build:
 
 start:
 	poetry run gunicorn task_manager.wsgi:application --bind 0.0.0.0:$PORT
+
+lint:
+	poetry run flake8 --exclude venv,.venv,migrations
+
+test:
+	poetry run coverage run -m pytest
+	poetry run coverage xml
+	poetry run coverage report

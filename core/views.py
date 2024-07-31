@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import views
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
