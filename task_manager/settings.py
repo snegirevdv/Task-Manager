@@ -22,7 +22,7 @@ dotenv.load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if os.getenv("LOCAL", False):
+if os.getenv("ENVIRONMENT", "production") == "development":
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
     DEBUG = True
     DATABASES = {
@@ -69,6 +69,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = "task_manager.urls"
@@ -129,3 +130,11 @@ MESSAGE_TAGS = {
 }
 
 AUTH_USER_MODEL = "users.User"
+
+
+ROLLBAR = {
+    'access_token': os.getenv("ROLLBAR_TOKEN"),
+    'environment': os.getenv("ENVIRONMENT", "production"),
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
