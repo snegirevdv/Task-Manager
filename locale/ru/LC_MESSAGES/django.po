@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 01:21+0300\n"
+"POT-Creation-Date: 2024-07-31 16:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,12 +24,12 @@ msgstr ""
 msgid "You are not authorized! Please log in again."
 msgstr ""
 
-#: core/models.py:9 templates/labels/list.html:14
+#: core/models.py:11 templates/labels/list.html:14
 #: templates/statuses/list.html:14 templates/tasks/list.html:20
 msgid "Name"
 msgstr ""
 
-#: core/models.py:13 templates/labels/list.html:17
+#: core/models.py:15 templates/labels/list.html:17
 #: templates/statuses/list.html:17 templates/tasks/detail.html:37
 #: templates/tasks/list.html:32 templates/users/list.html:20
 msgid "Created at"
@@ -156,7 +156,8 @@ msgstr "Создать"
 
 #: templates/includes/creation_form.html:11 templates/labels/list.html:29
 #: templates/statuses/list.html:29 templates/tasks/detail.html:53
-#: templates/tasks/list.html:49 templates/users/list.html:33
+#: templates/tasks/list.html:49 templates/users/create_update.html:21
+#: templates/users/list.html:33
 msgid "Edit"
 msgstr "Изменить"
 
@@ -180,7 +181,7 @@ msgstr "Выход"
 msgid "Log In"
 msgstr "Вход"
 
-#: templates/includes/header.html:34
+#: templates/includes/header.html:34 templates/users/create_update.html:18
 msgid "Register"
 msgstr "Регистрация"
 

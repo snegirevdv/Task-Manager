@@ -11,6 +11,16 @@
         {% trans 'User editing' %}
       {% endif %}
     </h1>
-    {% include 'includes/creation_form.html' %}
+    <form method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% if 'create' in request.resolver_match.url_name %}
+        {% trans 'Register' as create %}
+        {% bootstrap_button button_type='submit' content=create %}
+      {% else %}
+        {% trans 'Edit' as edit %}
+        {% bootstrap_button button_type='submit' content=edit %}
+      {% endif %}
+    </form>
   </div>
 {% endblock %}
