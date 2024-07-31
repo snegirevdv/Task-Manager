@@ -15,7 +15,7 @@
       {% csrf_token %}
       {% bootstrap_form form %}
       {% if 'create' in request.resolver_match.url_name %}
-        {% trans 'Register' as create %}
+        {% trans 'Create user' as create %}
         {% bootstrap_button button_type='submit' content=create %}
       {% else %}
         {% trans 'Edit' as edit %}
