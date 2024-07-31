@@ -12,7 +12,7 @@ class TaskFilter(django_filters.FilterSet):
     Filter for task list.
     Implements fields: status, executor, labels, author.
     """
-    label = django_filters.ModelChoiceFilter(
+    labels = django_filters.ModelChoiceFilter(
         label=_("Label"),
         queryset=TaskLabel.objects.all(),
         widget=forms.Select,
@@ -26,7 +26,7 @@ class TaskFilter(django_filters.FilterSet):
 
     class Meta:
         model = Task
-        fields = ["status", "executor"]
+        fields = ["status", "executor", "labels"]
 
     def filter_only_mine(
         self,
