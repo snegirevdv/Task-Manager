@@ -22,7 +22,7 @@ dotenv.load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if os.getenv("ENVIRONMENT", "development") == "development":
+if os.getenv("ENVIRONMENT", "development", "webserver") == "development":
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
     DEBUG = True
     DATABASES = {
