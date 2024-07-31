@@ -68,7 +68,7 @@ poetry run python manage.py runserver
 
 ## Usage
 
-After setting up the project, the application will be available at 'http://127.0.0.1:8000/'.
+After setting up the project, the application will be available at http://127.0.0.1:8000/.
 Register a new user, log in, and start managing your tasks.
 
 ## Example
