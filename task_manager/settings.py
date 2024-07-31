@@ -22,24 +22,22 @@ dotenv.load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if os.getenv("ENVIRONMENT", "development") == "development":
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "webserver"]
-    DEBUG = True
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+DEBUG = True if os.getenv("ENVIRONMENT") == "development" else False
 
-else:
-    ALLOWED_HOSTS = ["webserver", "task-manager-09zt.onrender.com"]
-    DEBUG = False
-    DATABASES = {
-        "default": dj_database_url.config(
-            conn_max_age=600, conn_health_checks=True
-        )
-    }
+DATABASES = {
+    "default": dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+}
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "webserver",
+    "task-manager-09zt.onrender.com",
+]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
