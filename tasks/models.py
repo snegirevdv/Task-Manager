@@ -38,6 +38,7 @@ class Task(BaseModel):
         related_name="tasks",
         to=TaskLabel,
         through="TaskLabelRelation",
+        blank=True,
     )
 
 
