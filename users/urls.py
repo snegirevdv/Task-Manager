@@ -21,7 +21,7 @@ urlpatterns = [
         name="update",
     ),
     path(
-        route="<int:pk>/create/",
+        route="<int:pk>/delete/",
         view=views.UserDeleteView.as_view(),
         name="delete",
     ),
