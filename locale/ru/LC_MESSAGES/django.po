@@ -22,12 +22,12 @@ msgstr ""
 
 #: core/mixins.py:16
 msgid "You are not authorized! Please log in again."
-msgstr ""
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
 #: core/models.py:11 templates/labels/list.html:14
 #: templates/statuses/list.html:14 templates/tasks/list.html:20
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: core/models.py:15 templates/labels/list.html:17
 #: templates/statuses/list.html:17 templates/tasks/detail.html:37
