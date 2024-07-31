@@ -53,7 +53,7 @@ class TaskCreateView(
     form_class = forms.TaskForm
     template_name = "tasks/create_update.html"
     success_url: str = reverse_lazy("tasks:list")
-    success_message: str = _("The task has been successfully updated.")
+    success_message: str = _("The task has been successfully created.")
 
     def form_valid(self, form: forms.TaskForm):
         form.instance.author = self.request.user
