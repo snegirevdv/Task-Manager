@@ -15,11 +15,16 @@ jobs:
         run: pip install poetry
       - name: Install dependencies and migrations
         run: make build
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
       - name: Run linter
         run: make lint
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
       - name: Run tests & coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         with:
           coverageCommand: make test
