@@ -62,11 +62,11 @@ msgstr "Метка успешно создана"
 
 #: labels/views.py:42
 msgid "The label has been successfully updated."
-msgstr "Метка успешно создана"
+msgstr "Метка успешно изменена"
 
 #: labels/views.py:56
 msgid "The label has been successfully deleted."
-msgstr "Метка успешно изменена"
+msgstr "Метка успешно удалена"
 
 #: labels/views.py:58
 msgid "The label cannot be deleted because it is in use."
