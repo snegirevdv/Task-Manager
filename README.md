@@ -1,6 +1,8 @@
 # Task Manager
 
 [![Actions Status](https://github.com/snegirevdv/python-django-developer-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/snegirevdv/python-django-developer-project-52/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/841fb772a479b84c19ce/maintainability)](https://codeclimate.com/github/snegirevdv/python-django-developer-project-52/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/841fb772a479b84c19ce/test_coverage)](https://codeclimate.com/github/snegirevdv/python-django-developer-project-52/test_coverage)
 
 ## Table of Contents
 
@@ -66,7 +68,7 @@ poetry run python manage.py runserver
 
 ## Usage
 
-After setting up the project, the application will be available at 'http://127.0.0.1:8000/'.
+After setting up the project, the application will be available at http://127.0.0.1:8000/.
 Register a new user, log in, and start managing your tasks.
 
 ## Example
