@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-03 17:28+0300\n"
+"POT-Creation-Date: 2024-08-03 17:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,15 +121,15 @@ msgstr "Задача успешно изменена"
 msgid "The task has been successfully deleted."
 msgstr "Задача успешно удалена"
 
-#: core/consts.py:90 users/views.py:25
+#: core/consts.py:90
 msgid "The user has been successfully registered."
 msgstr "Пользователь успешно зарегистрирован"
 
-#: core/consts.py:91 users/views.py:40
+#: core/consts.py:91
 msgid "The user has been successfully updated."
 msgstr "Пользователь успешно изменен"
 
-#: core/consts.py:92 users/views.py:60
+#: core/consts.py:92
 msgid "The user has been successfully deleted."
 msgstr "Пользователь успешно удален"
 
@@ -157,7 +157,7 @@ msgstr "Задачу может удалить только ее автор"
 msgid "You do not have permission to edit another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: core/consts.py:104 users/views.py:57
+#: core/consts.py:104
 msgid "The user cannot be deleted because it is in use."
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
@@ -243,7 +243,7 @@ msgstr "Создать статус"
 msgid "Status editing"
 msgstr "Изменение статуса"
 
-#: templates/statuses/delete.html:7 templates/tasks/delete.html:7
+#: templates/statuses/delete.html:7
 msgid "Status deletion"
 msgstr "Удаление статуса"
 
@@ -258,6 +258,12 @@ msgstr "Создать задачу"
 #: templates/tasks/create_update.html:11
 msgid "Task editing"
 msgstr "Изменение задачи"
+
+#: templates/tasks/delete.html:7
+#, fuzzy
+#| msgid "Status deletion"
+msgid "Task deletion"
+msgstr "Удаление статуса"
 
 #: templates/tasks/detail.html:7
 msgid "Task detail"

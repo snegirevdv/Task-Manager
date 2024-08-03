@@ -74,5 +74,5 @@ class TaskDeleteView(
     model = models.Task
     template_name: str = consts.Template.TASK_DELETE.value
     success_url: str = reverse_lazy("tasks:list")
-    success_message: str = consts.Message.SUCCESS_LABEL_DELETION.value
+    success_message: str = consts.Message.SUCCESS_TASK_DELETION.value
     author_error_message: str = consts.Message.FAILURE_TASK_DELETE.value
