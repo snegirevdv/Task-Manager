@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 
+from core import consts
 from users import models
 
 
@@ -8,7 +9,7 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = models.User
-        fields = ("first_name", "last_name", "username")
+        fields = consts.FieldList.USER_FORM
 
     def clean_username(self) -> str:
         """When updating, the username is checked only if it was changed."""

@@ -1,21 +1,21 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
-from core import mixins
+from core import consts
+from core.mixins import LoginRequiredMixin, ProtectedDeletionMixin
 from statuses import forms, models
 
 
-class StatusListView(mixins.LoginRequiredMixin, generic.ListView):
+class StatusListView(LoginRequiredMixin, generic.ListView):
     """List of statuses view."""
 
-    queryset = models.TaskStatus.objects.only("pk", "name", "created_at")
-    template_name = "statuses/list.html"
+    queryset = models.TaskStatus.objects.only(*consts.FieldList.BASE_QUERYSET)
+    template_name: str = consts.Template.STATUS_LIST.value
 
 
 class StatusCreateView(
-    mixins.LoginRequiredMixin,
+    LoginRequiredMixin,
     SuccessMessageMixin,
     generic.CreateView,
 ):
@@ -23,13 +23,13 @@ class StatusCreateView(
 
     model = models.TaskStatus
     form_class = forms.StatusForm
-    template_name = "statuses/create_update.html"
+    template_name: str = consts.Template.STATUS_CREATE_UPDATE.value
+    success_message: str = consts.Message.SUCCESS_STATUS_CREATION.value
     success_url: str = reverse_lazy("statuses:list")
-    success_message: str = _("The status has been successfully created.")
 
 
 class StatusUpdateView(
-    mixins.LoginRequiredMixin,
+    LoginRequiredMixin,
     SuccessMessageMixin,
     generic.UpdateView,
 ):
@@ -37,23 +37,21 @@ class StatusUpdateView(
 
     model = models.TaskStatus
     form_class = forms.StatusForm
-    template_name = "statuses/create_update.html"
+    template_name: str = consts.Template.STATUS_CREATE_UPDATE.value
+    success_message: str = consts.Message.SUCCESS_STATUS_UPDATE.value
     success_url: str = reverse_lazy("statuses:list")
-    success_message: str = _("The status has been successfully updated.")
 
 
 class StatusDeleteView(
-    mixins.ProtectedDeletionMixin,
-    mixins.LoginRequiredMixin,
+    ProtectedDeletionMixin,
+    LoginRequiredMixin,
     SuccessMessageMixin,
     generic.DeleteView,
 ):
     """Status deletion view."""
 
     model = models.TaskStatus
-    template_name = "statuses/delete.html"
+    template_name: str = consts.Template.STATUS_DELETE.value
+    success_message: str = consts.Message.SUCCESS_STATUS_DELETION.value
+    deletion_error_message: str = consts.Message.FAILURE_STATUS_DELETION.value
     success_url: str = reverse_lazy("statuses:list")
-    success_message: str = _("The status has been successfully deleted.")
-    deletion_error_message: str = _(
-        "The status cannot be deleted because it is in use."
-    )

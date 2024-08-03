@@ -1,5 +1,6 @@
 from django import forms
 
+from core import consts
 from labels import models
 
 
@@ -8,4 +9,4 @@ class LabelForm(forms.ModelForm):
 
     class Meta:
         model = models.TaskLabel
-        fields = ("name",)
+        fields = consts.FieldList.BASE_FORM

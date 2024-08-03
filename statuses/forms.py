@@ -1,5 +1,6 @@
 from django import forms
 
+from core import consts
 from statuses import models
 
 
@@ -8,4 +9,4 @@ class StatusForm(forms.ModelForm):
 
     class Meta:
         model = models.TaskStatus
-        fields = ("name",)
+        fields = consts.FieldList.BASE_FORM

@@ -1,9 +1,10 @@
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django_filters.views import FilterView
 
+from core import consts
 from core.mixins import LoginRequiredMixin
 from tasks import forms, models, filters
 from tasks.mixins import OnlyAuthorCanEditMixin
@@ -12,34 +13,20 @@ from tasks.mixins import OnlyAuthorCanEditMixin
 class TaskFilterView(LoginRequiredMixin, FilterView):
     """Task list view with filter."""
 
-    queryset = (
-        models.Task.objects.select_related(
-            "status",
-            "author",
-            "executor",
-        )
-        .prefetch_related("labels")
-        .only(
-            "id",
-            "name",
-            "status__name",
-            "author__first_name",
-            "author__last_name",
-            "executor__first_name",
-            "executor__last_name",
-            "created_at",
-            "labels__name",
-        )
-    )
     filterset_class = filters.TaskFilter
-    template_name = "tasks/list.html"
+    queryset = (
+        models.Task.objects.select_related("status", "author", "executor")
+        .prefetch_related("labels")
+        .only(*consts.FieldList.TASK_QUERYSET)
+    )
+    template_name: str = consts.Template.TASK_LIST.value
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
     """Task detail view."""
 
     queryset = models.Task.objects.prefetch_related("labels")
-    template_name = "tasks/detail.html"
+    template_name: str = consts.Template.TASK_DETAIL.value
 
 
 class TaskCreateView(
@@ -51,11 +38,11 @@ class TaskCreateView(
 
     model = models.Task
     form_class = forms.TaskForm
-    template_name = "tasks/create_update.html"
+    template_name: str = consts.Template.TASK_CREATE_UPDATE.value
     success_url: str = reverse_lazy("tasks:list")
-    success_message: str = _("The task has been successfully created.")
+    success_message: str = consts.Message.SUCCESS_TASK_CREATION.value
 
-    def form_valid(self, form: forms.TaskForm):
+    def form_valid(self, form: forms.TaskForm) -> HttpResponse:
         form.instance.author = self.request.user
         return super().form_valid(form)
 
@@ -68,12 +55,12 @@ class TaskUpdateView(
 ):
     """Task editing view. Only author can edit the task."""
 
-    queryset = models.Task.objects.prefetch_related("labels")
     form_class = forms.TaskForm
-    template_name = "tasks/create_update.html"
+    queryset = models.Task.objects.prefetch_related("labels")
+    template_name: str = consts.Template.TASK_CREATE_UPDATE.value
     success_url: str = reverse_lazy("tasks:list")
-    success_message: str = _("The task has been successfully updated.")
-    author_error_message: str = _("Only author can edit the task.")
+    success_message: str = consts.Message.SUCCESS_TASK_UPDATE.value
+    author_error_message: str = consts.Message.FAILURE_TASK_UPDATE.value
 
 
 class TaskDeleteView(
@@ -85,7 +72,7 @@ class TaskDeleteView(
     """Task deletion view. Only author can delete the task."""
 
     model = models.Task
-    template_name = "tasks/delete.html"
+    template_name: str = consts.Template.TASK_DELETE.value
     success_url: str = reverse_lazy("tasks:list")
-    success_message: str = _("The task has been successfully deleted.")
-    author_error_message: str = _("Only author can delete the task.")
+    success_message: str = consts.Message.SUCCESS_LABEL_DELETION.value
+    author_error_message: str = consts.Message.FAILURE_TASK_DELETE.value

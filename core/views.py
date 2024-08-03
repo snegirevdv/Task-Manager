@@ -3,22 +3,23 @@ from django.contrib.auth import views
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpRequest
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
 from django.views import generic
+
+from core import consts
 
 
 class IndexView(generic.TemplateView):
     """Homepage view."""
 
-    template_name = "index.html"
+    template_name: str = consts.Template.INDEX.value
 
 
 class LoginView(SuccessMessageMixin, views.LoginView):
     """Login page view."""
 
-    template_name = "users/login.html"
+    template_name: str = consts.Template.LOGIN.value
+    success_message: str = consts.Message.SUCCESS_LOGIN.value
     next_page: str = reverse_lazy("index")
-    success_message: str = _("You are logged in.")
 
 
 class LogoutView(views.LogoutView):
@@ -27,5 +28,5 @@ class LogoutView(views.LogoutView):
     next_page: str = reverse_lazy("index")
 
     def dispatch(self, request: HttpRequest, *args, **kwargs):
-        messages.info(request, _("You are logged out."))
+        messages.info(request, consts.Message.SUCCESS_LOGOUT.value)
         return super().dispatch(request, *args, **kwargs)

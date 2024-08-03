@@ -1,7 +1,8 @@
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.views import generic
-from django.utils.translation import gettext_lazy as _
+
+from core import consts
 
 
 class OnlySelfUserCanEdit(
@@ -14,7 +15,7 @@ class OnlySelfUserCanEdit(
         if not self.request.user == self.get_object():
             messages.error(
                 self.request,
-                _("You do not have permission to edit another user."),
+                consts.Message.FAILURE_USER_EDIT.value,
             )
             return redirect("users:list")
 

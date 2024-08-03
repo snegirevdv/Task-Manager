@@ -3,8 +3,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import ProtectedError
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
-from django.utils.translation import gettext_lazy as _
 from django.views import generic
+
+from core import consts
 
 
 class LoginRequiredMixin(LoginRequiredMixin, generic.View):
@@ -13,7 +14,7 @@ class LoginRequiredMixin(LoginRequiredMixin, generic.View):
     def handle_no_permission(self) -> HttpResponse:
         messages.error(
             self.request,
-            _("You are not authorized! Please log in again."),
+            consts.Message.FAILURE_NOT_AUTHORIZED.value,
         )
         return redirect("login")
 

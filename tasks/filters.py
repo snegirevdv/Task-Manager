@@ -1,8 +1,8 @@
 from django import forms
 from django.db.models import QuerySet
-from django.utils.translation import gettext_lazy as _
 import django_filters
 
+from core import consts
 from labels.models import TaskLabel
 from tasks.models import Task
 
@@ -12,21 +12,22 @@ class TaskFilter(django_filters.FilterSet):
     Filter for task list.
     Implements fields: status, executor, labels, author.
     """
+
     labels = django_filters.ModelChoiceFilter(
-        label=_("Label"),
+        label=consts.FormLabel.LABEL.value,
         queryset=TaskLabel.objects.all(),
         widget=forms.Select,
     )
 
     only_mine = django_filters.BooleanFilter(
-        label=_("Only own tasks"),
+        label=consts.FormLabel.ONLY_MINE.value,
         method="filter_only_mine",
         widget=forms.CheckboxInput,
     )
 
     class Meta:
         model = Task
-        fields = ["status", "executor", "labels"]
+        fields = consts.FieldList.TASK_FILTER
 
     def filter_only_mine(
         self,

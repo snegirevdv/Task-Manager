@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 17:43+0300\n"
+"POT-Creation-Date: 2024-08-03 17:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,139 +20,146 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: core/mixins.py:16
-msgid "You are not authorized! Please log in again."
-msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
-
-#: core/models.py:11 templates/labels/list.html:14
+#: core/consts.py:56 templates/labels/list.html:14
 #: templates/statuses/list.html:14 templates/tasks/list.html:20
 msgid "Name"
 msgstr "Имя"
 
-#: core/models.py:15 templates/labels/list.html:17
+#: core/consts.py:57 templates/labels/list.html:17
 #: templates/statuses/list.html:17 templates/tasks/detail.html:37
 #: templates/tasks/list.html:32 templates/users/list.html:20
 msgid "Created at"
 msgstr "Дата создания"
 
-#: core/views.py:21
-msgid "You are logged in."
-msgstr "Вы залогинены"
+#: core/consts.py:58 core/consts.py:72
+msgid "Label"
+msgstr "Метка"
 
-#: core/views.py:30
-msgid "You are logged out."
-msgstr "Вы разлогинены"
-
-#: labels/apps.py:8
-msgid "labels"
-msgstr "метки"
-
-#: labels/models.py:10
-msgid "label"
-msgstr "метка"
-
-#: labels/models.py:11 tasks/models.py:37 templates/includes/header.html:17
+#: core/consts.py:59 templates/includes/header.html:17
 #: templates/labels/list.html:7 templates/tasks/detail.html:43
 msgid "Labels"
 msgstr "Метки"
 
-#: labels/views.py:28
-msgid "The label has been successfully created."
-msgstr "Метка успешно создана"
-
-#: labels/views.py:42
-msgid "The label has been successfully updated."
-msgstr "Метка успешно изменена"
-
-#: labels/views.py:56
-msgid "The label has been successfully deleted."
-msgstr "Метка успешно удалена"
-
-#: labels/views.py:58
-msgid "The label cannot be deleted because it is in use."
-msgstr "Невозможно удалить метку, потому что она используется"
-
-#: statuses/apps.py:8
-msgid "statuses"
-msgstr "статусы"
-
-#: statuses/models.py:9
-msgid "status"
-msgstr "статус"
-
-#: statuses/models.py:10 templates/includes/header.html:14
-#: templates/statuses/list.html:7
-msgid "Statuses"
-msgstr "Статусы"
-
-#: statuses/views.py:28
-msgid "The status has been successfully created."
-msgstr "Статус успешно создан"
-
-#: statuses/views.py:42
-msgid "The status has been successfully updated."
-msgstr "Статус успешно изменен"
-
-#: statuses/views.py:56
-msgid "The status has been successfully deleted."
-msgstr "Статус успешно удален"
-
-#: statuses/views.py:58
-msgid "The status cannot be deleted because it is in use."
-msgstr "Невозможно удалить статус, потому что он используется"
-
-#: tasks/apps.py:8
-msgid "tasks"
-msgstr "задачи"
-
-#: tasks/filters.py:16
-msgid "Label"
-msgstr "Метка"
-
-#: tasks/filters.py:22
-msgid "Only own tasks"
-msgstr "Только свои задачи"
-
-#: tasks/models.py:14
-msgid "Description"
-msgstr "Описание"
-
-#: tasks/models.py:19 templates/tasks/detail.html:31
+#: core/consts.py:60 templates/tasks/detail.html:31
 #: templates/tasks/list.html:23
 msgid "Status"
 msgstr "Статус"
 
-#: tasks/models.py:25 templates/tasks/detail.html:19
+#: core/consts.py:61 templates/includes/header.html:14
+#: templates/statuses/list.html:7
+msgid "Statuses"
+msgstr "Статусы"
+
+#: core/consts.py:62
+msgid "Task"
+msgstr "Задача"
+
+#: core/consts.py:63 templates/includes/header.html:20
+#: templates/tasks/list.html:7
+msgid "Tasks"
+msgstr "Задачи"
+
+#: core/consts.py:64
+msgid "Description"
+msgstr "Описание"
+
+#: core/consts.py:65 templates/tasks/detail.html:19
 #: templates/tasks/list.html:26
 msgid "Author"
 msgstr "Автор"
 
-#: tasks/models.py:31 templates/tasks/detail.html:25
+#: core/consts.py:66 templates/tasks/detail.html:25
 #: templates/tasks/list.html:29
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: tasks/views.py:56
+#: core/consts.py:73
+msgid "Only own tasks"
+msgstr "Только свои задачи"
+
+#: core/consts.py:79
+msgid "You are logged in."
+msgstr "Вы залогинены"
+
+#: core/consts.py:80
+msgid "You are logged out."
+msgstr "Вы разлогинены"
+
+#: core/consts.py:81
+msgid "The label has been successfully created."
+msgstr "Метка успешно создана"
+
+#: core/consts.py:82
+msgid "The label has been successfully updated."
+msgstr "Метка успешно изменена"
+
+#: core/consts.py:83
+msgid "The label has been successfully deleted."
+msgstr "Метка успешно удалена"
+
+#: core/consts.py:84
+msgid "The status has been successfully created."
+msgstr "Статус успешно создан"
+
+#: core/consts.py:85
+msgid "The status has been successfully updated."
+msgstr "Статус успешно изменен"
+
+#: core/consts.py:86
+msgid "The status has been successfully deleted."
+msgstr "Статус успешно удален"
+
+#: core/consts.py:87
 msgid "The task has been successfully created."
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:75
+#: core/consts.py:88
 msgid "The task has been successfully updated."
 msgstr "Задача успешно изменена"
 
-#: tasks/views.py:76
-#, fuzzy
-#| msgid "Only author can delete the task."
-msgid "Only author can edit the task."
-msgstr "Задачу может изменить только ее автор"
-
-#: tasks/views.py:90
+#: core/consts.py:89
 msgid "The task has been successfully deleted."
 msgstr "Задача успешно удалена"
 
-#: tasks/views.py:91
+#: core/consts.py:90 users/views.py:25
+msgid "The user has been successfully registered."
+msgstr "Пользователь успешно зарегистрирован"
+
+#: core/consts.py:91 users/views.py:40
+msgid "The user has been successfully updated."
+msgstr "Пользователь успешно изменен"
+
+#: core/consts.py:92 users/views.py:60
+msgid "The user has been successfully deleted."
+msgstr "Пользователь успешно удален"
+
+#: core/consts.py:94
+msgid "You are not authorized! Please log in again."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: core/consts.py:96
+msgid "The label cannot be deleted because it is in use."
+msgstr "Невозможно удалить метку, потому что она используется"
+
+#: core/consts.py:99
+msgid "The status cannot be deleted because it is in use."
+msgstr "Невозможно удалить статус, потому что он используется"
+
+#: core/consts.py:101
+msgid "Only author can edit the task."
+msgstr "Задачу может изменить только ее автор"
+
+#: core/consts.py:102
 msgid "Only author can delete the task."
 msgstr "Задачу может удалить только ее автор"
+
+#: core/consts.py:103
+msgid "You do not have permission to edit another user."
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: core/consts.py:104 users/views.py:57
+msgid "The user cannot be deleted because it is in use."
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: templates/base.html:7 templates/includes/header.html:5
 msgid "Task Manager"
@@ -176,10 +183,6 @@ msgstr "Да, удалить"
 #: templates/includes/header.html:10 templates/users/list.html:7
 msgid "Users"
 msgstr "Пользователи"
-
-#: templates/includes/header.html:20 templates/tasks/list.html:7
-msgid "Tasks"
-msgstr "Задачи"
 
 #: templates/includes/header.html:25
 msgid "Log out"
@@ -299,27 +302,3 @@ msgstr "Вход"
 #: templates/users/login.html:11
 msgid "Login"
 msgstr "Войти"
-
-#: users/apps.py:8
-msgid "users"
-msgstr "пользователи"
-
-#: users/mixins.py:17
-msgid "You do not have permission to edit another user."
-msgstr "У вас нет прав для изменения другого пользователя."
-
-#: users/views.py:30
-msgid "The user has been successfully registered."
-msgstr "Пользователь успешно зарегистрирован"
-
-#: users/views.py:45
-msgid "The user has been successfully updated."
-msgstr "Пользователь успешно изменен"
-
-#: users/views.py:62
-msgid "The user cannot be deleted because it is in use."
-msgstr "Невозможно удалить пользователя, потому что он используется"
-
-#: users/views.py:65
-msgid "The user has been successfully deleted."
-msgstr "Пользователь успешно удален"

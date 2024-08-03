@@ -1,8 +1,8 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
-from django.utils.translation import gettext_lazy as _
 
+from core import consts
 from core.mixins import LoginRequiredMixin, ProtectedDeletionMixin
 from users.mixins import OnlySelfUserCanEdit
 from users import forms, models
@@ -11,23 +11,17 @@ from users import forms, models
 class UserListView(generic.ListView):
     """User list view."""
 
-    queryset = models.User.objects.only(
-        "pk",
-        "username",
-        "first_name",
-        "last_name",
-        "date_joined",
-    )
-    template_name = "users/list.html"
+    queryset = models.User.objects.only(*consts.FieldList.USER_QUERYSET)
+    template_name: str = consts.Template.USER_LIST.value
 
 
 class UserCreateView(SuccessMessageMixin, generic.CreateView):
     """User registration view."""
 
-    template_name = "users/create_update.html"
     form_class = forms.UserForm
+    template_name: str = consts.Template.USER_CREATE_UPDATE.value
     success_url: str = reverse_lazy("login")
-    success_message: str = _("The user has been successfully registered.")
+    success_message: str = consts.Message.SUCCESS_USER_CREATION.value
 
 
 class UserUpdateView(
@@ -39,10 +33,10 @@ class UserUpdateView(
     """User editing view."""
 
     model = models.User
-    template_name = "users/create_update.html"
     form_class = forms.UserForm
+    template_name: str = consts.Template.USER_CREATE_UPDATE.value
     success_url: str = reverse_lazy("users:list")
-    success_message: str = _("The user has been successfully updated.")
+    success_message: str = consts.Message.SUCCESS_USER_UPDATE.value
 
 
 class UserDeleteView(
@@ -55,11 +49,7 @@ class UserDeleteView(
     """User deletion view."""
 
     model = models.User
-    template_name = "users/delete.html"
-    success_url = reverse_lazy("users:list")
-
-    deletion_error_message: str = _(
-        "The user cannot be deleted because it is in use."
-    )
-
-    success_message: str = _("The user has been successfully deleted.")
+    template_name: str = consts.Template.USER_DELETE.value
+    success_url: str = reverse_lazy("users:list")
+    success_message: str = consts.Message.SUCCESS_USER_DELETION.value
+    deletion_error_message: str = consts.Message.FAILURE_USER_DELETE.value

@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 
+from core import consts
 from core.models import BaseModel
 from statuses.models import TaskStatus
 from labels.models import TaskLabel
@@ -11,35 +11,39 @@ class Task(BaseModel):
     """Task model."""
 
     description = models.TextField(
-        verbose_name=_("Description"),
+        verbose_name=consts.VerboseName.DESCRIPTION.value,
         null=True,
         blank=True,
     )
     status = models.ForeignKey(
-        verbose_name=_("Status"),
+        verbose_name=consts.VerboseName.STATUS.value,
         related_name="tasks",
         to=TaskStatus,
         on_delete=models.PROTECT,
     )
     author = models.ForeignKey(
-        verbose_name=_("Author"),
+        verbose_name=consts.VerboseName.AUTHOR.value,
         related_name="created_tasks",
         to=User,
         on_delete=models.PROTECT,
     )
     executor = models.ForeignKey(
-        verbose_name=_("Executor"),
+        verbose_name=consts.VerboseName.EXECUTOR.value,
         related_name="executing_tasks",
         to=User,
         on_delete=models.PROTECT,
     )
     labels = models.ManyToManyField(
-        verbose_name=_("Labels"),
+        verbose_name=consts.VerboseName.LABELS.value,
         related_name="tasks",
         to=TaskLabel,
         through="TaskLabelRelation",
         blank=True,
     )
+
+    class Meta:
+        verbose_name: str = consts.VerboseName.TASK.value.lower()
+        verbose_name_plural: str = consts.VerboseName.TASKS.value
 
 
 class TaskLabelRelation(models.Model):
