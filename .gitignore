@@ -9,4 +9,3 @@ coverage.xml
 .pytest_cache/
 *.env
 *.sqlite3
-logs/

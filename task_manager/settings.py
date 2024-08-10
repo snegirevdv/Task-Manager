@@ -140,7 +140,7 @@ LOGGING = {
         "file": {
             "level": "WARNING",
             "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "django.log",
+            "filename": BASE_DIR / "django_log.log",
             "formatter": "format",
         },
     },
