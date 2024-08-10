@@ -2,12 +2,11 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
-from core import consts
-from core.mixins import LoginRequiredMixin, ProtectedDeletionMixin
+from core import consts, mixins
 from labels import forms, models
 
 
-class LabelListView(LoginRequiredMixin, generic.ListView):
+class LabelListView(mixins.LoginRequiredMixin, generic.ListView):
     """List of labels view."""
 
     queryset = models.TaskLabel.objects.only(*consts.FieldList.BASE_QUERYSET)
@@ -15,7 +14,7 @@ class LabelListView(LoginRequiredMixin, generic.ListView):
 
 
 class LabelCreateView(
-    LoginRequiredMixin,
+    mixins.LoginRequiredMixin,
     SuccessMessageMixin,
     generic.CreateView,
 ):
@@ -29,7 +28,7 @@ class LabelCreateView(
 
 
 class LabelUpdateView(
-    LoginRequiredMixin,
+    mixins.LoginRequiredMixin,
     SuccessMessageMixin,
     generic.UpdateView,
 ):
@@ -43,8 +42,8 @@ class LabelUpdateView(
 
 
 class LabelDeleteView(
-    ProtectedDeletionMixin,
-    LoginRequiredMixin,
+    mixins.ProtectedDeletionMixin,
+    mixins.LoginRequiredMixin,
     SuccessMessageMixin,
     generic.DeleteView,
 ):

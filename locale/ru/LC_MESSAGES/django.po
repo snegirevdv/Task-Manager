@@ -261,9 +261,8 @@ msgstr "Изменение задачи"
 
 #: templates/tasks/delete.html:7
 #, fuzzy
-#| msgid "Status deletion"
 msgid "Task deletion"
-msgstr "Удаление статуса"
+msgstr "Удаление задачи"
 
 #: templates/tasks/detail.html:7
 msgid "Task detail"

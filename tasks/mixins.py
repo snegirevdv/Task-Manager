@@ -1,7 +1,10 @@
+import logging
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
 from django.views import generic
+
+logger = logging.getLogger(__name__)
 
 
 class OnlyAuthorCanEditMixin(
@@ -14,7 +17,13 @@ class OnlyAuthorCanEditMixin(
     author_error_redirect_url = ""
 
     def dispatch(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
-        if not self.request.user == self.get_object().author:
+        user = self.request.user
+        author = self.get_object().author
+
+        if not user == author:
+            logger.warning(
+                f"User {user} is trying to edit a {author}'s object.",
+            )
             messages.error(self.request, self.author_error_message)
             return redirect("tasks:list")
 
