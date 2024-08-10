@@ -6,9 +6,9 @@ from django.test import Client
 from django.urls import reverse
 from pytest_django.asserts import assertRedirects
 
-from labels.models import TaskLabel
-from labels.forms import LabelForm
-from tasks.models import Task
+from task_manager.labels.models import TaskLabel
+from task_manager.labels.forms import LabelForm
+from task_manager.tasks.models import Task
 
 
 def test_label_list_success(author_client: Client, task_label: TaskLabel):

@@ -3,10 +3,10 @@ from typing import Any
 import pytest
 from django.test import Client
 
-from users.models import User
-from statuses.models import TaskStatus
-from labels.models import TaskLabel
-from tasks.models import Task
+from task_manager.users.models import User
+from task_manager.statuses.models import TaskStatus
+from task_manager.labels.models import TaskLabel
+from task_manager.tasks.models import Task
 
 
 @pytest.fixture(autouse=True)

@@ -6,9 +6,9 @@ from django.test import Client
 from django.urls import reverse
 from pytest_django.asserts import assertRedirects
 
-from statuses.models import TaskStatus
-from statuses.forms import StatusForm
-from tasks.models import Task
+from task_manager.statuses.models import TaskStatus
+from task_manager.statuses.forms import StatusForm
+from task_manager.tasks.models import Task
 
 
 def test_status_list_success(author_client: Client, task_status: TaskStatus):

@@ -6,8 +6,8 @@ from django.urls import reverse
 import pytest
 from pytest_django.asserts import assertRedirects
 
-from users.forms import UserForm
-from users.models import User
+from task_manager.users.forms import UserForm
+from task_manager.users.models import User
 
 
 def test_user_list_success(client: Client, author: User, another_user: User):

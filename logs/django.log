@@ -3,3 +3,69 @@ Anonymous user is trying to get a secured page.
 core.mixins: Anonymous user is trying to get a secured page.
 core.mixins: Ivan Petrov is trying to delete a protected object: Ivan Petrov.
 WARNING: core.mixins: Ivan Petrov is trying to delete a protected object: Ivan Petrov.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: John Doe is trying to delete a protected object: Test Label.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: John Doe is trying to delete a protected object: Test Status.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.tasks.mixins: User Hello World is trying to edit a John Doe's object.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.tasks.mixins: User Hello World is trying to edit a John Doe's object.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.tasks.mixins: User Hello World is trying to edit a John Doe's object.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: task_manager.core.mixins: Anonymous user is trying to get a secured page.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: root: Hello World is trying to change John Doe account.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: root: Hello World is trying to change John Doe account.
+WARNING: rollbar: Rollbar already initialized. Ignoring re-init.
+WARNING: root: John Doe is trying to change Hello World account.
+WARNING: django.request: Not Found: /favicon.ico
