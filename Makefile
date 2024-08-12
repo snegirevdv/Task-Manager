@@ -17,7 +17,7 @@ build:
 	poetry run python manage.py migrate
 
 start:
-	poetry run gunicorn task_manager.wsgi:application --bind 0.0.0.0:$PORT
+	poetry run gunicorn task_manager.wsgi:application --bind 0.0.0.0:8000
 
 lint:
 	poetry run flake8 --exclude venv,.venv,migrations
