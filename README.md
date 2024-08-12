@@ -73,4 +73,4 @@ Register a new user, log in, and start managing your tasks.
 
 ## Example
 
-https://task-manager-09zt.onrender.com
+https://python-django-developer-project-52.onrender.com

@@ -24,7 +24,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "webserver",
-    "task-manager-09zt.onrender.com",
+    "python-django-developer-project-52.onrender.com",
 ]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
