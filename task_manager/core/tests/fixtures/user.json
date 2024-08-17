@@ -1,0 +1,26 @@
+[
+  {
+    "model": "users.User",
+    "pk": 1,
+    "fields": {
+      "username": "first_user",
+      "first_name": "First",
+      "last_name": "User",
+      "password": "pbkdf2_sha256$320000$dummyhash",
+      "is_staff": false,
+      "is_active": true
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 2,
+    "fields": {
+      "username": "second_user",
+      "first_name": "Second",
+      "last_name": "User",
+      "password": "pbkdf2_sha256$320000$dummyhash",
+      "is_staff": false,
+      "is_active": true
+    }
+  }
+]

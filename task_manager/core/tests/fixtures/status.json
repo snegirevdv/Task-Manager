@@ -1,0 +1,23 @@
+[
+  {
+    "model": "statuses.TaskStatus",
+    "pk": 1,
+    "fields": {
+      "name": "Status 1"
+    }
+  },
+  {
+    "model": "statuses.TaskStatus",
+    "pk": 2,
+    "fields": {
+      "name": "Status 2"
+    }
+  },
+  {
+    "model": "statuses.TaskStatus",
+    "pk": 3,
+    "fields": {
+      "name": "Status 3"
+    }
+  }
+]

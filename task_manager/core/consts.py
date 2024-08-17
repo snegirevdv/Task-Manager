@@ -1,8 +1,10 @@
 from enum import Enum
+from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
 
 NAME_MAX_LENGTH = 100
+TEST_FIXTURE_PATH = Path("task_manager/core/tests/fixtures/")
 
 
 class Template(Enum):

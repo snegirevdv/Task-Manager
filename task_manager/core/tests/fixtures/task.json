@@ -1,0 +1,35 @@
+[
+  {
+    "model": "tasks.Task",
+    "pk": 1,
+    "fields": {
+      "description": "Task 1",
+      "status": 1,
+      "author": 1,
+      "executor": 2,
+      "labels": [1, 2]
+    }
+  },
+  {
+    "model": "tasks.Task",
+    "pk": 2,
+    "fields": {
+      "description": "Task 2",
+      "status": 2,
+      "author": 1,
+      "executor": 2,
+      "labels": [1]
+    }
+  },
+  {
+    "model": "tasks.Task",
+    "pk": 3,
+    "fields": {
+      "description": "Task 3",
+      "status": 1,
+      "author": 1,
+      "executor": 1,
+      "labels": [2]
+    }
+  }
+]

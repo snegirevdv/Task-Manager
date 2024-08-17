@@ -10,6 +10,11 @@ from task_manager.users.models import User
 class Task(BaseModel):
     """Task model."""
 
+    name = models.CharField(
+        verbose_name=consts.VerboseName.NAME.value,
+        max_length=consts.NAME_MAX_LENGTH,
+        unique=True,
+    )
     description = models.TextField(
         verbose_name=consts.VerboseName.DESCRIPTION.value,
         null=True,
@@ -40,6 +45,9 @@ class Task(BaseModel):
         through="TaskLabelRelation",
         blank=True,
     )
+
+    def __str__(self) -> str:
+        return self.name
 
     class Meta:
         verbose_name: str = consts.VerboseName.TASK.value.lower()
