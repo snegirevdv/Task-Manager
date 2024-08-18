@@ -8,6 +8,6 @@ from task_manager.labels.models import TaskLabel
 
 @pytest.fixture
 def labels() -> QuerySet[TaskLabel]:
-    """Loads the label fixtures for the project."""
-    call_command('loaddata', TEST_FIXTURE_PATH / "label.json")
+    """Loads and returns the label fixtures for the project."""
+    call_command("loaddata", TEST_FIXTURE_PATH / "label.json")
     return TaskLabel.objects.all()

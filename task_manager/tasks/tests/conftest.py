@@ -8,8 +8,11 @@ from task_manager.tasks.models import Task
 
 @pytest.fixture
 def tasks(users) -> QuerySet[Task]:
-    """Loads the status fixtures for the project."""
-    call_command('loaddata', TEST_FIXTURE_PATH / "label.json")
-    call_command('loaddata', TEST_FIXTURE_PATH / "status.json")
-    call_command('loaddata', TEST_FIXTURE_PATH / "task.json")
+    """
+    Loads the label, status, task fixtures for the project.
+    Returns queryset of tasks.
+    """
+    call_command("loaddata", TEST_FIXTURE_PATH / "label.json")
+    call_command("loaddata", TEST_FIXTURE_PATH / "status.json")
+    call_command("loaddata", TEST_FIXTURE_PATH / "task.json")
     return Task.objects.all()

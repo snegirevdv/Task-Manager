@@ -18,7 +18,7 @@ def django_db(db):
 @pytest.fixture
 def users() -> QuerySet[models.AbstractBaseUser]:
     """Loads the user fixtures for the project."""
-    call_command('loaddata', TEST_FIXTURE_PATH / "user.json")
+    call_command("loaddata", TEST_FIXTURE_PATH / "user.json")
     return get_user_model().objects.all()
 
 

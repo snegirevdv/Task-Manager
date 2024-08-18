@@ -2,6 +2,7 @@ from django.db import connection
 
 
 def test_db_table_creation_success():
+    """Check the database structure."""
     tables = [
         "labels_tasklabel",
         "statuses_taskstatus",

@@ -7,7 +7,7 @@ from task_manager.statuses.models import TaskStatus
 
 
 @pytest.fixture
-def labels() -> QuerySet[TaskStatus]:
-    """Loads the status fixtures for the project."""
-    call_command('loaddata', TEST_FIXTURE_PATH / "status.json")
+def statuses() -> QuerySet[TaskStatus]:
+    """Loads and returns the status fixtures for the project."""
+    call_command("loaddata", TEST_FIXTURE_PATH / "status.json")
     return TaskStatus.objects.all()
