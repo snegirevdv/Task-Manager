@@ -5,12 +5,12 @@ from django.views import generic
 from django_filters.views import FilterView
 
 from task_manager.core import consts
-from task_manager.core.mixins import LoginRequiredMixin
+from task_manager.core.mixins import LoginIsRequiredMixin
 from task_manager.tasks import filters, forms, models
 from task_manager.tasks.mixins import OnlyAuthorCanEditMixin
 
 
-class TaskFilterView(LoginRequiredMixin, FilterView):
+class TaskFilterView(LoginIsRequiredMixin, FilterView):
     """Task list view with filter."""
 
     filterset_class = filters.TaskFilter
@@ -22,7 +22,7 @@ class TaskFilterView(LoginRequiredMixin, FilterView):
     template_name: str = consts.Template.TASK_LIST.value
 
 
-class TaskDetailView(LoginRequiredMixin, generic.DetailView):
+class TaskDetailView(LoginIsRequiredMixin, generic.DetailView):
     """Task detail view."""
 
     queryset = models.Task.objects.prefetch_related("labels")
@@ -30,7 +30,7 @@ class TaskDetailView(LoginRequiredMixin, generic.DetailView):
 
 
 class TaskCreateView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.CreateView,
 ):
@@ -48,7 +48,7 @@ class TaskCreateView(
 
 
 class TaskUpdateView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     OnlyAuthorCanEditMixin,
     SuccessMessageMixin,
     generic.UpdateView,
@@ -64,7 +64,7 @@ class TaskUpdateView(
 
 
 class TaskDeleteView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     OnlyAuthorCanEditMixin,
     SuccessMessageMixin,
     generic.DeleteView,

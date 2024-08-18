@@ -12,7 +12,7 @@ from task_manager.core import consts
 logger = logging.getLogger(__name__)
 
 
-class LoginRequiredMixin(LoginRequiredMixin, generic.View):
+class LoginIsRequiredMixin(LoginRequiredMixin, generic.View):
     """View requiring login to access the page."""
 
     def handle_no_permission(self) -> HttpResponse:

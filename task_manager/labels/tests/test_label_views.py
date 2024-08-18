@@ -1,11 +1,13 @@
 from http import HTTPStatus
 
 from django.db.models import QuerySet
+from django.http import HttpResponse
 from django.test import Client
 from django.urls import reverse
 from pytest_django.asserts import assertRedirects
 
 from task_manager.core.tests import consts
+from task_manager.labels.forms import LabelForm
 from task_manager.labels.models import TaskLabel
 
 
@@ -17,9 +19,9 @@ def test_label_list_success(
     Label list returns the correct number of labels
     and they are in the correct order.
     """
-    url = reverse("labels:list")
-    response = author_client.get(url)
-    object_list = response.context.get("object_list")
+    url: str = reverse("labels:list")
+    response: HttpResponse = author_client.get(url)
+    object_list: QuerySet[TaskLabel] = response.context.get("object_list")
 
     assert object_list is not None
     assert list(object_list) == list(labels.order_by("created_at"))
@@ -62,8 +64,9 @@ def test_label_update_success(
     url = reverse("labels:update", kwargs=consts.Kwargs.FIRST)
     response = author_client.get(url)
 
-    assert "form" in response.context
-    assert response.context.get("form").instance == label
+    form: LabelForm = response.context.get("form")
+    assert form is not None
+    assert form.instance == label
 
     data = consts.FormData.LABEL_UPDATE
     response = author_client.post(url, data=data)
@@ -75,10 +78,10 @@ def test_label_update_success(
 
 def test_label_update_failure(client: Client, labels: QuerySet[TaskLabel]):
     """Anonymous user can't update an existing label."""
-    label = labels.first()
-    url = reverse("labels:update", kwargs=consts.Kwargs.FIRST)
+    label: TaskLabel = labels.first()
+    url: str = reverse("labels:update", kwargs=consts.Kwargs.FIRST)
     data = consts.FormData.LABEL_UPDATE
-    response = client.post(url, data=data)
+    response: HttpResponse = client.post(url, data=data)
     assertRedirects(response, reverse("login"), HTTPStatus.FOUND)
 
     label.refresh_from_db()
@@ -93,9 +96,9 @@ def test_label_delete_success(
     Label delete page shows the confirmation and allows to delete an existing
     label for authorized users.
     """
-    label = labels.first()
+    label: TaskLabel = labels.first()
     url = reverse("labels:delete", kwargs=consts.Kwargs.FIRST)
-    response = author_client.post(url)
+    response: HttpResponse = author_client.post(url)
 
     assertRedirects(response, reverse("labels:list"), HTTPStatus.FOUND)
     assert not TaskLabel.objects.filter(pk=label.pk).exists()
@@ -103,9 +106,9 @@ def test_label_delete_success(
 
 def test_label_delete_failure(client: Client, labels: QuerySet[TaskLabel]):
     """Anonymous user can't delete an existing label."""
-    label = labels.first()
-    url = reverse("labels:delete", kwargs=consts.Kwargs.FIRST)
-    response = client.post(url)
+    label: TaskLabel = labels.first()
+    url: str = reverse("labels:delete", kwargs=consts.Kwargs.FIRST)
+    response: HttpResponse = client.post(url)
 
     assertRedirects(response, reverse("login"), HTTPStatus.FOUND)
     assert TaskLabel.objects.filter(pk=label.pk).exists()

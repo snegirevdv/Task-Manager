@@ -3,11 +3,11 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from task_manager.core import consts
-from task_manager.core.mixins import LoginRequiredMixin, ProtectedDeletionMixin
+from task_manager.core.mixins import LoginIsRequiredMixin, ProtectedDeletionMixin
 from task_manager.statuses import forms, models
 
 
-class StatusListView(LoginRequiredMixin, generic.ListView):
+class StatusListView(LoginIsRequiredMixin, generic.ListView):
     """List of statuses view."""
 
     queryset = models.TaskStatus.objects.only(*consts.FieldList.BASE_QUERYSET)
@@ -15,7 +15,7 @@ class StatusListView(LoginRequiredMixin, generic.ListView):
 
 
 class StatusCreateView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.CreateView,
 ):
@@ -29,7 +29,7 @@ class StatusCreateView(
 
 
 class StatusUpdateView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.UpdateView,
 ):
@@ -44,7 +44,7 @@ class StatusUpdateView(
 
 class StatusDeleteView(
     ProtectedDeletionMixin,
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.DeleteView,
 ):

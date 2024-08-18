@@ -22,7 +22,10 @@ rollbar = "^0.16.3"
 coverage = "^7.6.0"
 pytest-cov = "^5.0.0"
 flake8 = "^7.1.0"
-isort = "^5.13.2"
+mypy = "^1.11.1"
+django-stubs = "^5.0.4"
+mypy-extensions = "^1.0.0"
+types-requests = "^2.32.0.20240712"
 
 [build-system]
 requires = ["poetry-core"]
@@ -31,11 +34,12 @@ build-backend = "poetry.core.masonry.api"
 [tool.black]
 line-length = 79
 
-[tool.isort]
-profile = "black"
-line_length = 79
-multi_line_output = 3
-include_trailing_comma = true
-known_third_party = ["django"]
-skip = [".venv", "migrations"]
-use_parentheses = true
+[tool.mypy]
+python_version = "3.10"
+plugins = ["mypy_django_plugin.main"]
+strict = false
+exclude = "migrations/.*|.venv/.*"
+
+[tool.django-stubs]
+django_settings_module = "task_manager.settings"
+strict_settings = false

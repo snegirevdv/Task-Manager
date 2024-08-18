@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from task_manager.core import consts
-from task_manager.core.mixins import LoginRequiredMixin, ProtectedDeletionMixin
+from task_manager.core.mixins import LoginIsRequiredMixin, ProtectedDeletionMixin
 from task_manager.users import forms, models
 from task_manager.users.mixins import OnlySelfUserCanEdit
 
@@ -25,7 +25,7 @@ class UserCreateView(SuccessMessageMixin, generic.CreateView):
 
 
 class UserUpdateView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     OnlySelfUserCanEdit,
     SuccessMessageMixin,
     generic.UpdateView,
@@ -40,7 +40,7 @@ class UserUpdateView(
 
 
 class UserDeleteView(
-    LoginRequiredMixin,
+    LoginIsRequiredMixin,
     OnlySelfUserCanEdit,
     ProtectedDeletionMixin,
     SuccessMessageMixin,

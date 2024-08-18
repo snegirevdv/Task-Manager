@@ -6,7 +6,7 @@ from task_manager.core import consts, mixins
 from task_manager.labels import forms, models
 
 
-class LabelListView(mixins.LoginRequiredMixin, generic.ListView):
+class LabelListView(mixins.LoginIsRequiredMixin, generic.ListView):
     """List of labels view."""
 
     queryset = models.TaskLabel.objects.only(*consts.FieldList.BASE_QUERYSET)
@@ -14,7 +14,7 @@ class LabelListView(mixins.LoginRequiredMixin, generic.ListView):
 
 
 class LabelCreateView(
-    mixins.LoginRequiredMixin,
+    mixins.LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.CreateView,
 ):
@@ -28,7 +28,7 @@ class LabelCreateView(
 
 
 class LabelUpdateView(
-    mixins.LoginRequiredMixin,
+    mixins.LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.UpdateView,
 ):
@@ -43,7 +43,7 @@ class LabelUpdateView(
 
 class LabelDeleteView(
     mixins.ProtectedDeletionMixin,
-    mixins.LoginRequiredMixin,
+    mixins.LoginIsRequiredMixin,
     SuccessMessageMixin,
     generic.DeleteView,
 ):
