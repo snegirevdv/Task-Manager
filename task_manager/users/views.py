@@ -3,7 +3,10 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from task_manager.core import consts
-from task_manager.core.mixins import LoginIsRequiredMixin, ProtectedDeletionMixin
+from task_manager.core.mixins import (
+    LoginIsRequiredMixin,
+    ProtectedDeletionMixin,
+)
 from task_manager.users import forms, models
 from task_manager.users.mixins import OnlySelfUserCanEdit
 
