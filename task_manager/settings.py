@@ -8,7 +8,8 @@ from pathlib import Path
 
 dotenv.load_dotenv()
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = Path(__file__).resolve().parent
+BASE_DIR = PROJECT_DIR.parent
 
 DEBUG = True if os.getenv("ENVIRONMENT") == "development" else False
 
@@ -63,7 +64,7 @@ ROOT_URLCONF = "task_manager.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [PROJECT_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -102,7 +103,7 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, "locale"),
+    os.path.join(PROJECT_DIR, "locale"),
 ]
 
 STATIC_URL = "/static/"
