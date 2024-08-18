@@ -1,6 +1,6 @@
+import pytest
 from django.core.management import call_command
 from django.db.models import QuerySet
-import pytest
 
 from task_manager.core.consts import TEST_FIXTURE_PATH
 from task_manager.statuses.models import TaskStatus

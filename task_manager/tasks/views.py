@@ -6,7 +6,7 @@ from django_filters.views import FilterView
 
 from task_manager.core import consts
 from task_manager.core.mixins import LoginRequiredMixin
-from task_manager.tasks import forms, models, filters
+from task_manager.tasks import filters, forms, models
 from task_manager.tasks.mixins import OnlyAuthorCanEditMixin
 
 

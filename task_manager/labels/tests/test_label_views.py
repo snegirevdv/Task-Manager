@@ -1,9 +1,9 @@
 from http import HTTPStatus
 
+from django.db.models import QuerySet
+from django.test import Client
 from django.urls import reverse
 from pytest_django.asserts import assertRedirects
-from django.test import Client
-from django.db.models import QuerySet
 
 from task_manager.core.tests import consts
 from task_manager.labels.models import TaskLabel

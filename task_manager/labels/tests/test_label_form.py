@@ -1,8 +1,8 @@
 from http import HTTPStatus
 
-from django.urls import reverse
-from django.test import Client
 from django.http import HttpResponse
+from django.test import Client
+from django.urls import reverse
 from pytest_django.asserts import assertRedirects
 
 from task_manager.core.tests import consts

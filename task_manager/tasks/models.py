@@ -2,8 +2,8 @@ from django.db import models
 
 from task_manager.core import consts
 from task_manager.core.models import BaseModel
-from task_manager.statuses.models import TaskStatus
 from task_manager.labels.models import TaskLabel
+from task_manager.statuses.models import TaskStatus
 from task_manager.users.models import User
 
 

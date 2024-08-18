@@ -1,10 +1,9 @@
 import os
+from pathlib import Path
 
-from django.contrib import messages
 import dj_database_url
 import dotenv
-
-from pathlib import Path
+from django.contrib import messages
 
 dotenv.load_dotenv()
 

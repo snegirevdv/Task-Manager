@@ -1,12 +1,14 @@
-from django.http import HttpResponse
-import pytest
-from pytest_django.asserts import assertRedirects
-from django.urls import reverse
 from http import HTTPStatus
-from django.test import Client
-from task_manager.tasks.models import TaskStatus
+
+import pytest
 from django.db.models import QuerySet
+from django.http import HttpResponse
+from django.test import Client
+from django.urls import reverse
+from pytest_django.asserts import assertRedirects
+
 from task_manager.core.tests import consts
+from task_manager.tasks.models import TaskStatus
 
 
 @pytest.mark.parametrize("route, has_obj", consts.Routes.TASKS)

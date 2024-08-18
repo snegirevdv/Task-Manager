@@ -1,10 +1,10 @@
 from http import HTTPStatus
 
+import pytest
 from django.db.models import QuerySet
 from django.http import HttpResponse
 from django.test import Client
 from django.urls import reverse
-import pytest
 from pytest_django.asserts import assertRedirects
 
 from task_manager.core.tests import consts

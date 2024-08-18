@@ -1,12 +1,14 @@
+from http import HTTPStatus
+
+from django.db.models import QuerySet
 from django.http import HttpResponse
+from django.test import Client
 from django.urls import reverse
 from pytest_django.asserts import assertRedirects
-from http import HTTPStatus
-from django.test import Client
+
 from task_manager.core.tests import consts
 from task_manager.users.forms import UserForm
 from task_manager.users.models import User
-from django.db.models import QuerySet
 
 
 def test_user_list_view_success(client: Client, users: QuerySet[User]):

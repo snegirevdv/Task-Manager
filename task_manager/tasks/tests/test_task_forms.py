@@ -1,14 +1,15 @@
-from django.urls import reverse
 from http import HTTPStatus
+
 from django.db.models import QuerySet
-from django.test import Client
 from django.http import HttpResponse
+from django.test import Client
+from django.urls import reverse
 
 from task_manager.core.tests import consts
+from task_manager.labels.models import TaskLabel
+from task_manager.statuses.models import TaskStatus
 from task_manager.tasks.forms import TaskForm
 from task_manager.tasks.models import Task
-from task_manager.statuses.models import TaskStatus
-from task_manager.labels.models import TaskLabel
 from task_manager.users.models import User
 
 
@@ -24,7 +25,7 @@ def test_task_form_success(author_client: Client, tasks):
     assert Task.objects.filter(**form_data).exists()
 
     task = Task.objects.get(**form_data)
-    assert list(task.labels.values_list('pk', flat=True)) == labels
+    assert list(task.labels.values_list("pk", flat=True)) == labels
 
 
 def test_task_form_invalid_data_failure(author_client: Client):
@@ -72,8 +73,7 @@ def test_task_filter_by_label_success(
 
     object_list: list[Task] = response.context["object_list"]
     assert all(
-        task.labels.filter(pk=label.pk).exists()
-        for task in object_list
+        task.labels.filter(pk=label.pk).exists() for task in object_list
     )
     assert len(object_list) == len(tasks.filter(labels=label.pk))
 

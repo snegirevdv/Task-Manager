@@ -2,16 +2,16 @@ from http import HTTPStatus
 
 from django.db.models import QuerySet
 from django.http import HttpResponse
-from django.urls import reverse
 from django.test import Client
+from django.urls import reverse
 from pytest_django.asserts import assertRedirects
 
-from task_manager.tasks.forms import TaskForm
-from task_manager.users.models import User
 from task_manager.core.tests import consts
 from task_manager.labels.models import TaskLabel
 from task_manager.statuses.models import TaskStatus
+from task_manager.tasks.forms import TaskForm
 from task_manager.tasks.models import Task
+from task_manager.users.models import User
 
 
 def test_task_list_success(author_client: Client, tasks: QuerySet[Task]):

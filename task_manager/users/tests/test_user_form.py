@@ -1,11 +1,13 @@
-from django.http import HttpResponse
-from django.forms.utils import ErrorDict
-from django.urls import reverse
 from http import HTTPStatus
+
+from django.forms.utils import ErrorDict
+from django.http import HttpResponse
 from django.test import Client
-from task_manager.users.models import User
-from task_manager.users.forms import UserForm
+from django.urls import reverse
+
 from task_manager.core.tests import consts
+from task_manager.users.forms import UserForm
+from task_manager.users.models import User
 
 
 def test_user_form_valid_data(client: Client) -> None:

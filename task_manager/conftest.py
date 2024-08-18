@@ -1,8 +1,8 @@
-from django.core.management import call_command
+import pytest
 from django.contrib.auth import get_user_model, models
+from django.core.management import call_command
 from django.db.models import QuerySet
 from django.test import Client
-import pytest
 
 from task_manager.core.consts import TEST_FIXTURE_PATH
 

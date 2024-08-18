@@ -1,10 +1,12 @@
+from http import HTTPStatus
+
+from django.db.models import QuerySet
+from django.test import Client
 from django.urls import reverse
 from pytest_django.asserts import assertRedirects
-from http import HTTPStatus
-from django.test import Client
+
 from task_manager.core.tests import consts
 from task_manager.statuses.models import TaskStatus
-from django.db.models import QuerySet
 
 
 def test_status_list_success(

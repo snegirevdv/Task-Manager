@@ -1,6 +1,6 @@
+import django_filters
 from django import forms
 from django.db.models import QuerySet
-import django_filters
 
 from task_manager.core import consts
 from task_manager.labels.models import TaskLabel
