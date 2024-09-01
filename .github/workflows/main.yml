@@ -12,19 +12,26 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - name: Install Poetry
-        run: pip install poetry
-      - name: Install dependencies and migrations
+
+      - name: Install dependencies
         run: make build
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      - name: Run linter
-        run: make lint
+
+      - name: Make migrations
+        run: make migrate
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+
+      - name: Run linter
+        run: flake8
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+
       - name: Run tests & coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
@@ -85,7 +92,6 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             cd ~task_manager_django/

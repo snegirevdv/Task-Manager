@@ -1,28 +1,16 @@
 run:
-	poetry run python3 manage.py runserver
-
-locale-create:
-	poetry run django-admin makemessages -l en
-
-locale-compile:
-	poetry run django-admin compilemessages
+	python3 manage.py runserver
 
 migrate:
-	poetry run python manage.py makemigrations
-	poetry run python manage.py migrate
+	python3 manage.py migrate
 
 build:
-	poetry install
-	poetry run python manage.py makemigrations
-	poetry run python manage.py migrate
+	pip install -r requirements.txt
 
 start:
-	poetry run gunicorn task_manager.wsgi:application --bind 0.0.0.0:8001
-
-lint:
-	poetry run flake8 --exclude venv,.venv,migrations
+	gunicorn -w 5 -b 0.0.0.0:8001 task_manager.wsgi:application
 
 test:
-	poetry run coverage run -m pytest
-	poetry run coverage xml
-	poetry run coverage report
+	coverage run -m pytest
+	coverage xml
+	coverage report
