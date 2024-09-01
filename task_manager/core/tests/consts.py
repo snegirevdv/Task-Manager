@@ -1,7 +1,7 @@
 class Routes:
     """Route lists for route tests."""
 
-    USERS_OPEN = [("users:list"), ("users:create")]
+    USERS_OPEN = [("users:create")]
     USERS_PROTECTED = [("users:update"), ("users:delete")]
     LABELS = [
         ("labels:list", False),

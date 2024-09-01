@@ -27,6 +27,6 @@ class OnlySelfUserCanEdit(
                 self.request,
                 consts.Message.FAILURE_USER_EDIT.value,
             )
-            return redirect("users:list")
+            return redirect("index")
 
         return super().dispatch(request, *args, **kwargs)

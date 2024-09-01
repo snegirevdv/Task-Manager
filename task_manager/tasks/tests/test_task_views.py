@@ -188,5 +188,5 @@ def test_delete_user_related_to_task_failure(
     url: str = reverse("users:delete", kwargs={"pk": user.pk})
 
     response: HttpResponse = author_client.post(url)
-    assertRedirects(response, reverse("users:list"), HTTPStatus.FOUND)
+    assertRedirects(response, reverse("index"), HTTPStatus.FOUND)
     assert User.objects.filter(pk=user.pk).exists()

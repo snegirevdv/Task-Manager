@@ -6,11 +6,6 @@ app_name = "users"
 
 urlpatterns = [
     path(
-        route="",
-        view=views.UserListView.as_view(),
-        name="list",
-    ),
-    path(
         route="create/",
         view=views.UserCreateView.as_view(),
         name="create",

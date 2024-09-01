@@ -11,13 +11,6 @@ from task_manager.users import forms, models
 from task_manager.users.mixins import OnlySelfUserCanEdit
 
 
-class UserListView(generic.ListView):
-    """User list view."""
-
-    queryset = models.User.objects.only(*consts.FieldList.USER_QUERYSET)
-    template_name: str = consts.Template.USER_LIST.value
-
-
 class UserCreateView(SuccessMessageMixin, generic.CreateView):
     """User registration view."""
 
@@ -38,7 +31,7 @@ class UserUpdateView(
     model = models.User
     form_class = forms.UserForm
     template_name: str = consts.Template.USER_CREATE_UPDATE.value
-    success_url: str = reverse_lazy("users:list")
+    success_url: str = reverse_lazy("index")
     success_message: str = consts.Message.SUCCESS_USER_UPDATE.value
 
 
@@ -53,6 +46,6 @@ class UserDeleteView(
 
     model = models.User
     template_name: str = consts.Template.USER_DELETE.value
-    success_url: str = reverse_lazy("users:list")
+    success_url: str = reverse_lazy("index")
     success_message: str = consts.Message.SUCCESS_USER_DELETION.value
     deletion_error_message: str = consts.Message.FAILURE_USER_DELETE.value

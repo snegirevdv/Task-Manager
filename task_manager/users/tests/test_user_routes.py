@@ -34,9 +34,7 @@ def test_protected_routes_failure(
     """
     url = reverse(route, kwargs=consts.Kwargs.AUTHOR)
     another_user_response = another_user_client.get(url)
-    assertRedirects(
-        another_user_response, reverse("users:list"), HTTPStatus.FOUND
-    )
+    assertRedirects(another_user_response, reverse("index"), HTTPStatus.FOUND)
 
     anonymous_response = client.get(url)
     assertRedirects(anonymous_response, reverse("login"), HTTPStatus.FOUND)
