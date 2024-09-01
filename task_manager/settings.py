@@ -11,6 +11,7 @@ PROJECT_DIR = Path(__file__).resolve().parent
 BASE_DIR = PROJECT_DIR.parent
 
 DEBUG = os.getenv("ENVIRONMENT") == "development"
+CSRF_COOKIE_SECURE = not DEBUG
 
 DATABASES = {
     "default": dj_database_url.config(
@@ -21,6 +22,7 @@ DATABASES = {
 }
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "task-manager.snegirev.dev"]
+CSRF_TRUSTED_ORIGINS = ["https://task-manager.snegirev.dev"]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
