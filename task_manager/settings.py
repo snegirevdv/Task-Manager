@@ -10,7 +10,7 @@ dotenv.load_dotenv()
 PROJECT_DIR = Path(__file__).resolve().parent
 BASE_DIR = PROJECT_DIR.parent
 
-DEBUG = True if os.getenv("ENVIRONMENT") == "development" else False
+DEBUG = os.getenv("ENVIRONMENT") == "development"
 
 DATABASES = {
     "default": dj_database_url.config(
@@ -20,12 +20,7 @@ DATABASES = {
     )
 }
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "webserver",
-    "python-django-developer-project-52.onrender.com",
-]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "task-manager.snegirev.dev"]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 

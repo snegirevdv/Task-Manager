@@ -1,0 +1,17 @@
+volumes:
+  pg_data:
+
+services:
+  db:
+    image: postgres:16
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  django:
+    image: dvsnegirev/task-manager-django:latest
+    env_file: .env
+    depends_on:
+      - db
+    ports:
+      - 8001:8001
