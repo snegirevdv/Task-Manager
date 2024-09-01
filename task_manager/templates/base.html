@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="ru-ru">
+<html lang="en-us">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>{% trans 'Task Manager' %}</title>
@@ -15,5 +15,6 @@
       ...
     {% endblock %}
     {% include 'includes/footer.html' %}
+    {% bootstrap_javascript %}
   </body>
 </html>

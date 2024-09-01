@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "hexlet-code"
+name = "task_manager"
 version = "0.1.0"
 description = "Task Manager"
 authors = ["Denis <snegirev.dv@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "task_manager" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -14,14 +13,14 @@ dj-database-url = "^2.2.0"
 psycopg2-binary = "^2.9.9"
 gunicorn = "^22.0.0"
 django-bootstrap5 = "^24.2"
-black = "^24.4.2"
 django-filter = "^24.2"
+rollbar = "^0.16.3"
+black = "^24.4.2"
+flake8 = "^7.1.0"
 pytest = "^8.3.2"
 pytest-django = "^4.8.0"
-rollbar = "^0.16.3"
 coverage = "^7.6.0"
 pytest-cov = "^5.0.0"
-flake8 = "^7.1.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -5,10 +5,7 @@
   <a class="navbar-brand" href="/">{% trans 'Task Manager' %}</a>
   <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"><span class="navbar-toggler-icon"></span></button>
   <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'users:list' %}">{% trans 'Users' %}</a>
-      </li>
+    <ul class="navbar-nav me-auto">
       {% if request.user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'statuses:list' %}">{% trans 'Statuses' %}</a>
@@ -19,11 +16,21 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'tasks:list' %}">{% trans 'Tasks' %}</a>
         </li>
+      {% endif %}
+    </ul>
+    <ul class="navbar-nav ms-auto pe-3">
+      {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <form action="{% url 'logout' %}" method="post">
+          <a class="nav-link" href="{% url 'users:update' request.user.pk %}">{% trans 'Edit Profile' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="{% url 'users:delete' request.user.pk %}">{% trans 'Delete Profile' %}</a>
+        </li>
+        <li class="nav-item">
+          <form action="{% url 'logout' %}" method="post" class="d-inline">
             {% csrf_token %}
             {% trans 'Log out' as logout %}
-            <input class="btn nav-link" type="submit" value="{{ logout }}" />
+            <input class="btn btn-primary" type="submit" value="{{ logout }}" />
           </form>
         </li>
       {% else %}
@@ -31,7 +38,7 @@
           <a class="nav-link" href="{% url 'login' %}">{% trans 'Log In' %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'users:create' %}">{% trans 'Register' %}</a>
+          <a class="btn btn-primary ms-2" href="{% url 'users:create' %}">{% trans 'Sign Up' %}</a>
         </li>
       {% endif %}
     </ul>
