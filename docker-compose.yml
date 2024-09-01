@@ -8,7 +8,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
 
-  django:
+  task-manager-django:
     build: .
     env_file: .env
     depends_on:
