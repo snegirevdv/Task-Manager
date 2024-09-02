@@ -89,4 +89,4 @@ Register a new user, log in, and start managing your tasks.
 
 ## Example
 
-[https://task-manager.snegirev.dev/](https://task-manager.snegirev.dev/)
+[https://task-manager.snegirev.dev/](https://task-manager.snegirev.dev)
