@@ -1,4 +1,7 @@
 # Task Manager
+[![CI/CD](https://github.com/snegirevdv/Task-Manager/actions/workflows/main.yml/badge.svg)](https://github.com/snegirevdv/Task-Manager/actions/workflows/main.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f83e9cd2e44c350518d2/maintainability)](https://codeclimate.com/github/snegirevdv/Task-Manager/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f83e9cd2e44c350518d2/test_coverage)](https://codeclimate.com/github/snegirevdv/Task-Manager/test_coverage)
 
 ## Table of Contents
 
