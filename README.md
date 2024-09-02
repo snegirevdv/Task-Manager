@@ -31,37 +31,60 @@ Task Manager is a web application that helps manage tasks effectively. It suppor
 
 ## Installation
 
-To install and run the project, follow these steps:
+### Direct Installation
 
-1. **Clone the repository:**
+1. Clone the repository:
 
-```sh
-git clone https://github.com/snegirevdv/python-django-developer-project-52.git
-cd python-django-developer-project-52
-```
+   ```sh
+   git clone https://github.com/snegirevdv/Task-Manager.git
+   ```
 
-2. **Install dependencies:**
-   You must have [Poetry](https://python-poetry.org/) installed.
+2. Change the directory:
 
-```sh
-poetry install
-```
+   ```sh
+   cd Task_Manager
+   ```
 
-3. **Apply migrations:**
+3. Create a `.env` file with the necessary environment variables and update the .env file with your configuration:
 
-```sh
-poetry run python manage.py migrate
-```
+   ```sh
+   touch .env
+   ```
 
-4. **Run the development server:**
+4. Install the dependencies and initialize the database:
 
-```sh
-poetry run python manage.py runserver
-```
+   ```sh
+   make build
+   ```
+
+5. Run the application:
+   ```sh
+   make start
+   ```
+
+### Using Docker Compose
+
+1. Download the `docker-compose.production.yml` file:
+
+   ```sh
+   curl -O https://raw.githubusercontent.com/snegirevdv/Task-Manager/main/docker-compose.production.yml
+   ```
+
+2. Create a `.env` file with the necessary environment variables and update the .env file with your configuration:
+
+   ```sh
+   touch .env
+   ```
+
+3. Start the application using the production Docker Compose file. The application should now be running at `http://localhost:8001`:
+
+   ```sh
+   docker-compose -f docker-compose.production.yml up
+   ```
 
 ## Usage
 
-After setting up the project, the application will be available at http://127.0.0.1:8000/.
+After setting up the project, the application will be available at http://127.0.0.1:8001/.
 Register a new user, log in, and start managing your tasks.
 
 ## Example
