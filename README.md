@@ -27,7 +27,7 @@ Task Manager is a web application that helps manage tasks effectively. It suppor
 - Labels: Use labels for better task organization.
 - Statuses: Use task statuses to track progress.
 - Filters: Filter tasks based on different parameters.
-- Multilingual Support: Currently supports Russian localization.
+- Multilingual Support.
 
 ## Installation
 
